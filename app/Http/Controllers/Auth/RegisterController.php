@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
 use App\Http\Controllers\Controller;
+use App\Mail\RequestConfirmEmail;
+use App\Repositories\UserRepository;
+use App\Services\EmailService;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Mail;
+use PragmaRX\Google2FA\Google2FA;
 
 class RegisterController extends Controller
 {
@@ -23,49 +28,71 @@ class RegisterController extends Controller
     use RegistersUsers;
 
     /**
+     * @var UserRepository
+     */
+    protected $repository;
+
+    /**
      * Where to redirect users after registration.
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/profile';
+
+    /** @var EmailService $emailService */
+    protected $emailService;
 
     /**
      * Create a new controller instance.
      *
-     * @return void
+     * @param UserRepository $repository
+     * @param EmailService   $emailService
      */
-    public function __construct()
-    {
+    public function __construct(
+        UserRepository $repository,
+        EmailService $emailService
+    ) {
+        $this->repository = $repository;
+        $this->emailService = $emailService;
+        parent::__construct();
         $this->middleware('guest');
     }
 
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param array $data
+     *
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            // 'agree' => 'required',
+            // 'tos' => 'required',
+            'use_2fa' => 'nullable'
         ]);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-    protected function create(array $data)
+    public function register(Request $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+        if ($request->isMethod('post')) {
+            $data = $request->all();
+            $request->flashExcept('password');
+            $this->validator($data)->validate();
+            $user = $this->repository->create($data);
+            if ($request->input('use_2fa')) {
+                $google2fa = new Google2FA();
+                $user->use_2fa = true;
+                $user->google2fa_secret = $google2fa->generateSecretKey();
+                $user->save();
+            }
+            Mail::send(new RequestConfirmEmail($user));
+            return redirect()->route('home')->with('registered', 1);
+        }
+
+        return view('auth.register');
     }
 }

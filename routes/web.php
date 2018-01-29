@@ -16,6 +16,14 @@ Route::get('/', function () {
 });
 
 
+Route::namespace('IPN')->prefix('ipn')->group(function () {
+    Route::prefix('coinpayments')->group(function () {
+        Route::post('transaction', 'CoinpaymentsIPNController@transaction')->name('coinpayments.transactionIpnUrl');
+        Route::post('deposit', 'CoinpaymentsIPNController@deposit')->name('coinpayments.depositIpnUrl');
+        Route::post('callbackAddress', 'CoinpaymentsIPNController@callbackAddress')->name('coinpayments.callbackAddressIpnUrl');
+    });
+});
+
 
 Route::group(['middleware' => 'check_utm'], function() {
 

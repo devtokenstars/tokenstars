@@ -1,0 +1,1 @@
+<div class="big-font-size medium-margin-before">The exclusive autographed tennis racket and white T-shirt from Cedric Pioline, pro tennis player, former No.&nbsp;4&nbsp;in&nbsp;ATP ranking, currently Team France co-captain at&nbsp;Davis Cup.</div>

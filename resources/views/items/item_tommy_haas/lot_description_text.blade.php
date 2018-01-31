@@ -1,0 +1,1 @@
+<p class="small-margin-before">A professional tennis racket and a signed T-shirt from the famous German tennis star, Silver Olympic medalist Tommy Haas. Mr. Haas donated both items personally in December 2017 to the TokenStars’ Charity Auction with the desire to support Laureus Sport for Good Foundation by the funds raised from the sale of these items.</p>

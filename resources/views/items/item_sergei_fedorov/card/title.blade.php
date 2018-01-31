@@ -1,0 +1,1 @@
+<a href="http://mooross.ru/" class="uppercase bold-font big-font-size" onclick="ga('send', 'event', 'out_charity', 'charity', 'Social Justice Development Fund');">Social Justice Development Fund</a>

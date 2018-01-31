@@ -1,0 +1,1 @@
+<div class="big-font-size medium-margin-before">Football manager and former professional football player. Played for Real Sociedad, Celta, Valencia CF, FC Spartak, and Russian national team. Career stats: 122 goals. Silver medalist at Spanish La Liga. 3-time winner of Russian football league. 2-time winner of the Russian Cup.</div>

@@ -1,0 +1,1 @@
+<div class="big-font-size medium-margin-before">NHL star, 2x Stanley Cup Champion with Detroit Red Wings, World Champion with the Russian National Team, member of The 100 Greatest NHL Players. Сurrently playing for the SKA KHL Club.</div>

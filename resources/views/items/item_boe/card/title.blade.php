@@ -1,0 +1,1 @@
+<a href="http://www.righttoplay.no/" class="uppercase bold-font big-font-size" onclick="ga('send', 'event', 'out_charity', 'charity', 'Righttoplay');">Righttoplay</a>

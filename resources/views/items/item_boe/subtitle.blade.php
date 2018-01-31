@@ -1,0 +1,3 @@
+<div class="big-font-size medium-margin-before">Professional Norwegian Biathlete. Olympics Gold medalist, 8-times World Champion
+    <p class="small-font-size bold-font medium-margin-before" style="text-align: right"><a href="http://bespokeartistsagency.com/" target="_blank"><img style="height: 20px; vertical-align: bottom" src="{{asset("/images/charity/unfon.png")}}"></a> Represented by <a href="http://bespokeartistsagency.com/" target="_blank">Bespoke Artists Agency</a></p>
+</div>

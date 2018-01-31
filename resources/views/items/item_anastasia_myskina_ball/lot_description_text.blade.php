@@ -1,0 +1,1 @@
+<div class="big-font-size medium-margin-before">Authentic Wilson tennis ball, signed by Anastasiya Myskina in December 2017. A perfect ball to play on a court, give as a gift or keep for yourself as a memorabilia item. Accompanied by her tournament photo with the personal Anastasiya's signature.</div>

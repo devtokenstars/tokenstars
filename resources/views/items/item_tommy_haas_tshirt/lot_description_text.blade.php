@@ -1,0 +1,1 @@
+<p class="small-margin-before">2 brand new T-shirts from the famous German tennis star, Silver Olympic medalist Tommy Haas with his personal signatures on the front. White classical polo style t-shirt and a black casual t-shirt carry the logos of BNP-PARIBAS Open Tournament at Indian Wells, where  Mr. Haas holds the position of the Tournament Director.</p>

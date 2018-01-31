@@ -1,0 +1,1 @@
+<div class="big-font-size medium-margin-before">Famous hockey player, NHL star, 3x Stanley Cup Winner with Detroit Red Wings, 3x World Champion, member of The NHL Hockey Hall of Fame.</div>

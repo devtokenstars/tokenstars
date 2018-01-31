@@ -1,0 +1,1 @@
+<div class="big-font-size medium-margin-before">A&nbsp;South African Internet entrepreneur, the co-founder &amp;&nbsp;CEO of&nbsp;Civic&nbsp;&mdash; an&nbsp;identity protection and management startup. Vinny also co-founded and leaded Gyft &amp;&nbsp;Yola, Inc.</div>

@@ -1,0 +1,1 @@
+<div class="big-font-size medium-margin-before">Bitcoin angel investor & bitcoin evangelist. Entrepreneur, CEO of Bitcoin.com</div>

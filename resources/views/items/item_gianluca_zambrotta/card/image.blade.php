@@ -1,0 +1,1 @@
+<img style="width: 140px;" src="{{asset("/images/charity/foundations/silvia-onlus.png")}}" alt="" class="ch-auction-card-destination-logo">

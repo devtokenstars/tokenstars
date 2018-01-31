@@ -1,0 +1,1 @@
+<div class="big-font-size medium-margin-before">NHL star currently playing for the Tampa Bay Lightning.</div>

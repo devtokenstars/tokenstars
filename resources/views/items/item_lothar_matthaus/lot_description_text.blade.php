@@ -1,0 +1,1 @@
+<p class="small-margin-before">Original jersey of the Geman Football team signed by the legendary football player Lothar Matthaus. The design of this jersey was developed by Adidas for the FIFA World Cup 2018. This jersey is uniquely personalized and holds the name of Lothar Matthaus and his famous “10” number on the back and his personal signature on the front side.</p>

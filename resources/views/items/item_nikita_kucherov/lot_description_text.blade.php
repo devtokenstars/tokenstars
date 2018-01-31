@@ -1,0 +1,2 @@
+<p class="small-margin-before">Original Tampa Bay Lightning jersey with signatures from Nikita Kucherov, Steven Stamkos, Victor Hedman, Chris Kunitz.
+<br>This original Tampa Bay Lightning jersey holds the name of KUCHEROV and his team number 86 on the back. This original NHL item is manufactured by Adidas and it's designed to be used as the official home kit in the 2017-18 season of the National Hockey League.</p>

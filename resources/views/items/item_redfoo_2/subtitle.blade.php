@@ -1,0 +1,2 @@
+<div class="big-font-size medium-margin-before">American rapper, DJ, singer and songwriter best known as part of the LMFAO. 
+Won more than 43 music awards, including 11 Billboard music awards, 4 World Music Awards, 5 MTV Music awards and 2 Grammy Nominations.</div>

@@ -1,0 +1,68 @@
+.button
+    display inline-block
+    
+    position relative
+    
+    height 50px
+    
+    background-color #157FFB
+    
+    outline none
+    border none
+    
+    border-bottom 2px solid #1160BD
+    
+    border-radius 8px
+    
+    cursor pointer
+    
+    font-size 20px
+    font-weight bold
+    
+    color #fff
+    
+    padding-left 23px
+    padding-right 23px
+    
+    transition transform 0.2s ease, background-color 0.1s ease
+    
+    -webkit-appearance none
+    
+    text-decoration none
+    text-align center
+    
+    &:hover,
+    &:active
+        background-color #1574e2
+        color #fff
+        
+    &:active
+        transform translateY(2px)
+        
+    &.st-telegram
+        height 76px
+        
+        text-align left
+        
+        padding-left 100px
+        
+        background-image url(../images/telegram-icon.svg)
+        background-size 60px 60px
+        background-repeat no-repeat
+        background-position left 21px center
+
+    &:disabled,
+    &.disabled
+        line-height 50px
+        background #c0c0c0
+        border-color #c0c0c0
+        pointer-events none
+
+label.button
+a.button
+    line-height 50px
+    
+    &.st-telegram
+        line-height 24px
+        
+        padding-top 14px

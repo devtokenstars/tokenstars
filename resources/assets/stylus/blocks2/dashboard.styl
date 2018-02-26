@@ -1,0 +1,221 @@
+.dashboard
+  &__row
+    display: flex
+    flex-wrap: wrap;
+    padding 33px 0
+    position relative
+    &:after
+      content ""
+      position absolute
+      bottom 0
+      border-bottom 2px solid #dcdcdc
+      left: -30px;
+      right: -30px;
+    &:last-child:after
+      display none
+    @media screen and (max-width: $mobileWidth)
+      display block
+      flex-wrap unset
+  &__lcol
+    flex: 0 0 45%;
+    padding-right 40px
+    @media screen and (max-width: $mobileWidth)
+      padding-right 0
+  &__rcol
+    flex: 0 0 55%;
+    background #f2f2f2
+    border-radius 8px
+    position relative
+  &__step
+    color: #8c8c8c
+    font-weight 500;
+    font-size 20px
+    margin-bottom 2px
+  &__step-info
+    font-size 14px
+    color #aaaaaa
+
+  & h2
+    margin-top 0
+
+    & + p
+      margin-top 10px
+
+  & p
+    margin-top 10px
+
+    &:first-child
+      margin-top 0
+
+  &__balances
+    display: flex
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding 15px 0
+  &__balance
+    flex 1
+    border-right 2px solid #d2d2d2
+    text-align center
+    padding-top 10px
+    &:last-child
+      border-right none
+  &__balance-title
+    color: #8c8c8c
+    margin-bottom 10px
+  &__balance-amount
+    font-weight 700;
+    font-size 30px
+    margin-bottom 20px
+  &__balance-add
+    min-width 116px
+    height: 37px;
+  &__wallet
+    background #157ffb
+    position absolute
+    left 0
+    right 0
+    top 0
+    bottom 0
+    border-radius 8px
+    color white
+    padding: 20px;
+    text-align center
+  &__wallet-title
+    font-size 18px
+    margin-bottom 15px
+  &__wallet-address
+    display inline-block
+    margin 0 auto
+    border 1px solid white
+    border-radius 8px
+    padding 10px 15px
+    margin-bottom 18px
+  &__wallet-close
+    display inline-block
+    min-width 116px
+    height: 37px;
+    background white
+    color black
+  &__form
+    padding-top 18px
+  &__form-title
+    font-weight 700;
+    font-size 28px
+    padding 0 25px 10px
+  &__form-title2
+    border-bottom 2px solid #d2d2d2
+    font-weight 500;
+    font-size 20px
+    padding: 0 5px 10px;
+    margin: 0 20px;
+    strong
+      font-size: 80%
+      color: #8c8c8c
+  &__form-box
+    display: flex
+    padding 30px 25px 0;
+  &__form-lcol
+    flex 1
+  &__form-rcol
+    flex 1
+    text-align center
+  &__form-currency
+    font-weight 700;
+    font-size 28px
+    margin-bottom 20px
+    text-align center
+    position relative
+    &:after
+      content ""
+      position absolute
+      bottom 0
+      border-bottom 2px solid #dcdcdc
+      left: 15px;
+      right: 15px;
+    &:last-child
+      &:after
+        border none
+  &__form-range
+    width: 100%
+    margin: 20px 0;
+    padding 10px
+    font-size: 15px
+    width: 80px;
+  &__form-separator
+    width: 90px;
+    display: flex
+    flex-direction: column
+    justify-content: center
+  &__form-separator-chevron
+    width 55px
+    height 55px
+    border-radius 50%
+    background #d8d8d8
+    padding: 10px;
+    margin: 0 auto;
+  &__form-header1
+    margin-bottom: 10px;
+    margin-top: 20px;
+  &__form-sum
+    font-weight 500;
+    font-size 30px
+    padding-bottom 15px
+    margin-bottom 15px
+    position relative
+    &:after
+      content ""
+      position absolute
+      bottom 0
+      border-bottom 2px solid #dcdcdc
+      left: 15px;
+      right: 15px;
+  &__form-header2
+    font-weight 700;
+    font-size 20px
+    margin-bottom 10px
+    text-transform uppercase
+  &__form-itogo
+    font-weight 700;
+    font-size 30px
+    margin-bottom 20px
+  &__form-submit
+    width 100%
+    border-radius: 0 0 8px 8px;
+    font-size: 24px;
+    height: 55px;
+  &__form-submit--disabled
+    background rgb(175,175,175)
+    border-bottom 2px solid rgb(150, 150, 150)
+    &:hover
+      background rgb(175,175,175)
+      border-bottom 2px solid rgb(150, 150, 150)
+  &__telegram
+    display flex
+
+    position relative
+
+    width 100%
+    max-height 150px
+
+    align-items center
+    justify-content center
+
+    text-align center
+
+    background-image: url(../images/telegram-background.jpg);
+
+    padding 15px 0
+
+    @media screen and (max-width: $mobileWidth)
+      margin-top 30px
+
+  &__telegram-title
+    font-weight 500
+    font-size 20px
+    margin-bottom 15px
+
+  & .event
+    margin-top 35px

@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+@import "reset"
+//@import "fonts2/*"
+@import "variables2"
+@import "blocks2/typography.styl"
+@import "blocks2/header.styl"
+@import "blocks2/layout.styl"
+@import "blocks2/menu.styl"
+@import "blocks2/subscribe.styl"
+@import "blocks2/input.styl"
+@import "blocks2/button.styl"
+@import "blocks2/contribute.styl"
+@import "blocks2/advant.styl"
+@import "blocks2/tabs.styl"
+
+html,
+body
+  width 100%
+  height 100%
+
+body
+  -webkit-font-smoothing antialiased
+  -webkit-text-size-adjust 100%
+  -webkit-tap-highlight-color rgba(0,0,0,0)
+
+  font-family $font-gotham
+
+section
+  display block
+
+  position relative
+
+  width 100%
+  min-width 900px
+
+  @media screen and (max-width: $mobileWidth)
+    min-width 100%
+
+a
+  transition all 0.1s ease
+
+.dark
+  background-color #121123
+
+.st-scroll
+  overflow hidden
+
+  width auto
+
+.st-margin
+  width auto
+
+.notification
+  position absolute
+  z-index 4
+  background rgba(150, 255, 150, 0.5)
+  color #fff
+  padding 10px
+  border-radius 5px
+  right 20px
+  display none
+  top 5px
+  &--info
+    background rgba(21, 127, 251, 0.5)

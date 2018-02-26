@@ -1,0 +1,118 @@
+.cabinet
+    display block
+
+    position relative
+
+    width 100%
+    height 100%
+
+    background-color #121123
+
+    &-box
+        display block
+
+        position relative
+
+        max-width 400px
+
+        margin-left auto
+        margin-right auto
+
+        padding-top 100px
+        padding-bottom 100px
+
+        @media screen and (max-width: $mobileWidth)
+            padding-top 20px
+            padding-bottom 20px
+
+    &--logo
+        display block
+
+        position relative
+
+        width 204px
+        height 46px
+
+        background-image url(../images/logo.svg)
+
+        margin-left auto
+        margin-right auto
+
+    &-form
+        display block
+
+        position relative
+
+        width 100%
+
+        background-color #fff
+
+        border-radius 7px
+
+        padding-left 15px
+        padding-right 15px
+        padding-top 30px
+        padding-bottom 15px
+
+        margin-top 15px
+
+        &-line
+            display block
+
+            position relative
+
+            margin-top 20px
+
+        &__field
+            display inline-block
+
+            position relative
+
+            font-size 14px
+
+            color #000
+
+            &-anchor
+                @extend .cabinet-form__field
+                float right
+
+        & .input
+            margin-top 10px
+
+        &-footer
+            display block
+
+            position relative
+
+            margin-top 30px
+
+            text-align center
+
+            & .button
+                padding-left 40px
+                padding-right 40px
+
+        & p
+            margin-top 10px
+
+            & a
+                color #157ffb
+
+                &:hover,
+                &:active
+                    color #333
+
+    &__title
+        display block
+
+        position relative
+
+        font-size 24px
+        font-weight 500
+
+        color #000
+
+        margin-bottom 20px
+
+    & .st-red
+        color #ff089f

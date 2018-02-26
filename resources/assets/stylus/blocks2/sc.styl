@@ -1,0 +1,67 @@
+.sc
+    display block
+    
+    position relative
+    
+    width 100%
+    
+    font-size 0
+    
+    text-align center
+    
+    &__link
+        display inline-block
+        
+        position relative
+        
+        width 35px
+        height 35px
+        
+        border-radius 50%
+        
+        background-repeat no-repeat
+        background-position center center
+        
+        margin-left 25px
+        
+        vertical-align top
+        
+        transition transform 0.1s ease
+        
+        &:first-child
+            margin-left 0
+            
+        &.el-fb
+            background-image url(../images/sc-fb.svg)
+            background-size 9px 18px
+            background-color #3b5998
+            
+        &.el-tw
+            background-image url(../images/sc-tw.svg)
+            background-size 20px 16px
+            background-color #1da1f2
+            
+        &.el-tg
+            background-image url(../images/sc-tg.svg)
+            background-size 18px 16px
+            background-color #0088cc
+            background-position left 7px center
+            
+        &.el-md
+            background-image url(../images/sc-medium.svg)
+            background-size 18px 15px
+            background-color #00ab6c
+            
+        &.el-bt
+            background-image url(../images/sc-bt.svg)
+            background-size 12px 18px
+            background-color #ffb400
+
+        &.el-website
+            background-image url(../images/sc-website.svg)
+            background-size 19px 19px
+            background-color #06cc03
+            
+        &:hover,
+        &:active
+            transform translateY(-2px)

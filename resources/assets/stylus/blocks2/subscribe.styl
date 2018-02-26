@@ -1,0 +1,166 @@
+.subscribe
+    display block
+    
+    position relative
+    
+    width 100%
+    height 100px
+    
+    background-color rgba(#157FFB, 0.37)
+
+    z-index 2
+
+    &-sticky-base
+        display block
+        height 100px
+        .subscribe--close
+            display none
+        @media screen and (max-width: $mobileWidth)
+            height auto
+
+    &--sticky
+        background-color rgba(#157FFB, 0.8)
+
+        position fixed
+        top 0
+        .subscribe--close
+            display block
+    
+    @media screen and (max-width: $mobileWidth)
+        height auto
+    
+    &-table
+        display table
+        
+        position relative
+        
+        width 100%
+        height 100px
+        
+        @media screen and (max-width: $mobileWidth)
+            display block
+
+            height auto
+            
+            padding-top 30px
+            padding-bottom 30px
+        
+    &-cell
+        display table-cell
+        
+        position relative
+        
+        vertical-align middle
+        
+        @media screen and (max-width: $mobileWidth)
+            display block
+            
+            width 100%
+        
+        &:last-child
+            width 48%
+            
+            padding-right 50px
+            
+            @media screen and (max-width: $mobileWidth)
+                width 100%
+                
+                padding-right 0
+        
+    &__caption
+        display block
+        
+        position relative
+        
+        font-size 20px
+        font-weight 500
+        
+        color #fff
+        
+        line-height 28px
+        
+        @media screen and (max-width: 930px)
+            font-size 17px
+            
+            line-height 25px
+        
+        @media screen and (max-width: $mobileWidth)
+            padding-right 20px
+            
+            font-size 20px
+            
+            line-height 28px
+        
+    &-form
+        display table
+        
+        position relative
+        
+        width 100%
+        
+        @media screen and (max-width: $mobileWidth)
+            display block
+            
+            margin-top 20px
+    
+        &-block
+            display table-cell
+            
+            position relative
+            
+            vertical-align middle
+            
+            @media screen and (max-width: $mobileWidth)
+                display block
+            
+            &:first-child
+                padding-right 15px
+                
+                @media screen and (max-width: $mobileWidth)
+                    padding-right 0
+                    
+                    margin-bottom 10px
+                    
+        & .button
+            @media screen and (max-width: $mobileWidth)
+                width 100%
+                
+    &--close
+        display block
+        
+        position absolute
+        
+        top 10px
+        right 40px
+        
+        width 23px
+        height 23px
+        
+        border 2px solid #fff
+        
+        border-radius 50%
+        
+        background-image url(../images/close.svg)
+        background-size 9px 9px
+        background-position center center
+        background-repeat no-repeat
+        
+        cursor pointer
+        
+        opacity 0.6
+        
+        transition opacity 0.1s ease
+        
+        @media screen and (max-width: $mobileWidth)
+            top 20px
+            right 20px
+        
+        &:hover,
+        &:active
+            opacity 1
+
+    .error
+        color: red !important;
+
+    &-success
+        color: white;

@@ -1,0 +1,54 @@
+.button
+    display inline-block
+    
+    position relative
+    
+    height 40px
+    
+    background #7f00ff
+    background -moz-linear-gradient(left, #7f00ff 0%, #e20cff 100%)
+    background -webkit-linear-gradient(left, #7f00ff 0%,#e20cff 100%)
+    background linear-gradient(to right, #7f00ff 0%,#e20cff 100%)
+    filter "progid:DXImageTransform.Microsoft.gradient( startColorstr='#7f00ff', endColorstr='#e20cff',GradientType=1 )"
+    
+    outline none
+    border none
+    
+    border-radius 50px
+    
+    cursor pointer
+    
+    font-size 20px
+    
+    color #fff
+    
+    padding-left 45px
+    padding-right 45px
+    
+    transition transform 0.2s ease, background-color 0.1s ease
+    
+    -webkit-appearance none
+    
+    text-decoration none
+    
+    &:hover,
+    &:active        
+        background #6600f4
+        background -moz-linear-gradient(left, #6600f4 0%, #e20cff 100%)
+        background -webkit-linear-gradient(left, #6600f4 0%,#e20cff 100%)
+        background linear-gradient(to right, #6600f4 0%,#e20cff 100%)
+        filter "progid:DXImageTransform.Microsoft.gradient( startColorstr='#6600f4', endColorstr='#e20cff',GradientType=1 )"
+        
+    &:active
+        transform translateY(2px)
+        
+    &.st-big
+        height 55px
+        
+        font-size 24px
+        
+a.button
+    line-height 40px
+    
+    &.st-big
+        line-height 55px

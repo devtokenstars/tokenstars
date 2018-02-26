@@ -1,0 +1,144 @@
+.advant
+    padding-top 35px
+    
+    font-size 0
+    
+    @media screen and (max-width: $mobileWidth)
+        padding-top 15px
+    
+    &-item
+        display inline-block
+        
+        position relative
+        
+        width 25%
+        
+        vertical-align top
+        
+        text-align center
+        
+        padding-left 20px
+        padding-right 20px
+        
+        @media screen and (max-width: $mobileWidth)
+            display block
+            
+            width 100%
+            
+            margin-top 20px
+        
+    &-icon
+        display block
+        
+        position relative
+        
+        width 100%
+        height 82px
+        
+        background-repeat no-repeat
+        background-position center center
+        
+        margin-left auto
+        margin-right auto
+        
+        &.el-1
+            background-image url(../images/advant-1.png)
+            background-size 62px 74px
+            
+        &.el-2
+            background-image url(../images/advant-2.png)
+            background-size 64px 64px
+            
+        &.el-3
+            background-image url(../images/advant-3.png)
+            background-size 82px 82px
+            
+        &.el-4
+            background-image url(../images/advant-4.png)
+            background-size 91px 70px
+        
+    &__title
+        display block
+        
+        position relative
+        
+        font-size 20px
+        font-weight 500
+        
+        color #000
+        
+        margin-top 15px
+        
+    & p
+        margin-top 5px
+        
+        & strong
+            color #157FFB
+    &-l3
+        padding 10px 0 20px
+
+        @media screen and (max-width: $mobileWidth) 
+            padding 0 0 50px
+
+        & p
+            color white
+        .advant
+            &-item
+                position relative
+                z-index 0
+                &:before
+                    content attr(data-item)
+                    font-size 200px
+                    font-weight 500
+                    color #157FFB
+                    position absolute
+                    top -30px
+                    left 50%
+                    z-index -1
+                    opacity 0.2
+                    transform translateX(-50%)
+                &:after
+                    content ''
+                    background-image url(../images/advant-arrow.png)
+                    background-repeat no-repeat
+                    background-size contain
+                    width 60px
+                    height 30px
+                &:nth-child(1), &:nth-child(3)
+                    &:after
+                        position absolute
+                        top -10px
+                        right -30px
+                &:nth-child(2)
+                    &:after
+                        position absolute
+                        bottom -10px
+                        right -30px
+                        transform scale(1, -1)
+                @media screen and (max-width: $mobileWidth)                    
+                    margin-top 50px
+                    &:first-child
+                        margin-top 0
+                    &:before
+                        font-size 150px
+                        top -20px
+                    &:nth-child(1), &:nth-child(3)
+                        &:after
+                            position absolute
+                            top unset
+                            bottom -40px
+                            right -20px
+                            transform rotateZ(90deg)
+                    &:nth-child(2)
+                        &:after
+                            position absolute
+                            top unset
+                            bottom -40px
+                            right unset
+                            left -30px
+                            transform rotateZ(90deg) scale(1, -1)
+
+            &__title
+                color white
+
+            

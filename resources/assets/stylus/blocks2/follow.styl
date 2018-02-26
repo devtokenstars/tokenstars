@@ -1,0 +1,83 @@
+.follow
+    height 200px
+    
+    background-image url(../images/follow-background.jpg)
+    background-size cover
+    background-position center center
+    
+    @media screen and (max-width: $mobileWidth)
+        height auto
+        
+        padding-top 30px
+        padding-bottom 30px
+    
+    &-flex
+        display flex
+        
+        position relative
+        
+        width 100%
+        height 100%
+        
+        align-items center
+        justify-content center
+        
+        @media screen and (max-width: $mobileWidth)
+            display block
+    
+    &__title
+        display block
+        
+        position relative
+        
+        font-size 32px
+        font-weight 500
+        
+        color #fff
+        
+        text-align center
+        
+    &-form
+        display table
+        
+        position relative
+        
+        width 510px
+        
+        margin-left auto
+        margin-right auto
+        margin-top 25px
+        
+        table-layout fixed
+        
+        @media screen and (max-width: $mobileWidth)
+            display block
+            
+            width 100%
+        
+        &-cell
+            display table-cell
+            
+            position relative
+            
+            vertical-align top
+            
+            @media screen and (max-width: $mobileWidth)
+                display block
+            
+            &:last-child
+                width 175px
+                
+                padding-left 15px
+                
+                @media screen and (max-width: $mobileWidth)
+                    width 100%
+                    
+                    padding-left 0
+                    padding-top 10px
+                
+    & .button
+        width 100%
+
+    .error
+        color: red !important;

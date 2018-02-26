@@ -1,0 +1,30 @@
+.events
+    border-top 3px solid #DCDCDC
+    
+    padding-top 25px
+    padding-bottom 40px
+    
+    font-size 0
+    
+    & .event
+        width 23.5%
+        
+        margin-right 2%
+        margin-top 30px
+        
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4)
+            margin-top 0
+        
+        &:nth-child(4n+4)
+            margin-right 0
+        @media screen and (max-width: $mobileWidth)
+            width 100%
+            &:nth-child(0)
+                margin-top 0
+            &:nth-child(2),
+            &:nth-child(3),
+            &:nth-child(4)
+                margin-top 30px

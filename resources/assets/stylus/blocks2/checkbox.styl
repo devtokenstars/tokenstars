@@ -1,0 +1,77 @@
+.checkbox
+    display block
+    
+    position relative
+    
+    width 100%
+    
+    font-size 14px
+    
+    color #000
+    
+    line-height 20px
+    
+    cursor pointer
+    
+    padding-left 25px
+    
+    & a
+        color #157FFB
+        
+        text-decoration none
+        
+        &:hover,
+        &:active
+            color #333
+    
+    &:before,
+    &:after
+        display block
+        
+        position absolute
+
+        top 50%
+        left 0
+        
+        width 16px
+        height 16px
+
+        margin-top -8px
+        
+        border-radius 4px
+        
+        content ''
+
+        transition all 0.1s ease
+        
+    &:before
+        background-color #fff
+
+        border 1px solid #c3c3c3
+        
+    &:after
+        background-image url(../images/checkbox.svg)
+        background-repeat no-repeat
+        background-position center center
+        background-size 10px 8px
+        
+        padding 1px
+        
+        opacity 0
+
+    &-w-button
+        display inline-block
+        width auto
+        line-height 50px
+
+    &-button
+        float right
+        
+input[type="checkbox"]:checked + .checkbox
+    &:before
+        background-color #157FFB
+        
+        border-color #157FFB
+        
+    &:after
+        opacity 1

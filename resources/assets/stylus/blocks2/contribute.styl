@@ -1,0 +1,264 @@
+.contribute
+    display block
+    
+    position relative
+
+    padding-top 20px
+    
+    @media screen and (max-width: $mobileWidth)
+        padding-bottom 20px
+    
+    &__layout
+        display block
+        
+        position relative
+        
+        width 100%
+        
+        padding-left 20px
+        padding-right 20px
+    
+    &__title
+        display block
+        
+        position relative
+        
+        font-size 28px
+        font-weight 900
+        
+        color #000
+        
+    &__bonus
+        display block
+        
+        position relative
+        
+        font-size 36px
+        font-weight 900
+        
+        color #157FFB
+        
+        margin-top 5px
+        
+    &__time
+        display block
+        
+        position relative
+        
+        font-size 16px
+        font-weight 500
+        
+        color #8C8C8C
+        
+        margin-top 5px
+        
+    &-timer
+        display block
+        
+        position relative
+        
+        width 100%
+        
+        background-color #D5D5D5
+        
+        margin-top 15px
+        
+        padding-top 15px
+        padding-bottom 15px
+        
+        font-size 0
+        
+    &--flex
+        display flex
+        
+        width 100%
+        
+        justify-content space-between
+        
+    &__value
+        display inline-block
+        
+        position relative
+        
+        width 60px
+        height 65px
+        
+        background-color #fff
+        
+        border-radius 10px
+        
+        font-size 32px
+        font-weight bold
+        
+        color #000
+        
+        text-align center
+        
+        padding-top 10px
+        
+        margin-left 16px
+        
+        @media screen and (max-width: $mobileWidth)
+            margin-left 0
+            
+            width 55px
+            height 60px
+            
+            font-size 28px
+        
+        &:first-child
+            margin-left 0
+        
+        & i
+            display block
+            
+            position relative
+            
+            font-size 14px
+            font-weight 500
+            
+            color #8C8C8C
+            
+    &-collect
+        display block
+        
+        position relative
+        
+        margin-top 15px
+        
+        &__title
+            display block
+            
+            position relative
+            
+            font-size 16px
+            font-weight bold
+            
+            text-align center
+            text-transform uppercase
+            
+        &__value
+            display block
+            
+            position relative
+            
+            font-size 18px
+            font-weight bold
+            
+            text-align center
+            text-transform uppercase
+            
+            margin-top 3px
+            
+            & i
+                font-style normal
+                
+                color #8C8C8C
+                
+    &-bar
+        display block
+        
+        position relative
+        
+        width 100%
+        height 30px
+        
+        background-color #DFDFDF
+        
+        border-radius 10px
+        
+        margin-top 15px
+        
+        overflow hidden
+        
+        z-index 1
+        
+        &--line
+            display block
+            
+            position absolute
+            
+            top 0
+            left 0
+            
+            height 100%
+            
+            background-color #8F95B2
+            
+            z-index 1
+            
+        &--stripe
+            display block
+            
+            position absolute
+            
+            top 0
+            bottom 0
+            
+            width 3px
+            height 24px
+            
+            margin auto
+            
+            background-color rgba(#fff, 0.4)
+            
+            border-radius 3.5px
+            
+            z-index 2
+            
+    &-values
+        display block
+        
+        position relative
+        
+        width 100%
+        height 30px
+        
+        margin-top 5px
+        
+        &__item
+            display inline-block
+            
+            position absolute
+            
+            top 0
+            
+            font-size 16px
+            font-weight bold
+            
+            color #000
+            
+            text-align right
+            
+            white-space nowrap
+            
+            & i
+                display block
+                
+                position relative
+                
+                font-style normal
+                font-size 14px
+                
+            &.st-min
+                left 0
+                
+            &.st-max
+                right 0
+                
+    &--separator
+        display block
+        
+        position relative
+        
+        width 100%
+        height 3px
+        
+        background-color rgba(#BDBDBD, 0.48)
+        
+        margin-top 20px
+        
+    & .button
+        width 100%
+        
+        margin-top 20px

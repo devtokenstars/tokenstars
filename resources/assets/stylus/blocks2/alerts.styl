@@ -1,0 +1,72 @@
+$alert-padding =               15px
+$alert-border-radius =         4px
+$alert-link-font-weight =      bold
+
+$state-success-text =             #3c763d
+$state-success-bg =               #dff0d8
+$state-success-border =           darken(hue($state-success-bg, -10deg), 5%)
+
+$state-info-text =                #31708f
+$state-info-bg =                  #d9edf7
+$state-info-border =              darken(hue($state-info-bg, -10deg), 7%)
+
+$state-warning-text =             #8a6d3b
+$state-warning-bg =               #fcf8e3
+$state-warning-border =           darken(hue($state-warning-bg, -10deg), 5%)
+
+$state-danger-text =              #a94442
+$state-danger-bg =                #f2dede
+$state-danger-border =            darken(hue($state-danger-bg, -10deg), 5%)
+
+alert-variant($background, $border, $text-color)
+  background-color $background
+  border-color $border
+  color $text-color
+
+  hr
+    border-top-color darken($border, 5%)
+
+  .alert-link
+    color darken($text-color, 10%)
+
+.alert
+  font-size 14px
+  padding $alert-padding
+  margin-bottom 14px
+  border 1px solid transparent
+  border-radius $alert-border-radius
+
+  & h4
+    margin-top 0
+    color inherit
+
+  &-link
+    font-weight bold
+
+  & > p,
+  & > ul
+    margin-bottom 0
+
+  & p + p
+    margin-top 5px
+
+  &-dismissible
+    padding-right ($alert-padding + 20)
+    & .close
+      position relative
+      top -2px
+      right -21px
+      color inherit
+
+
+  &-success
+    alert-variant($state-success-bg, $state-success-border, $state-success-text)
+
+  &-info
+    alert-variant($state-info-bg, $state-info-border, $state-info-text)
+
+  &-warning
+    alert-variant($state-warning-bg, $state-warning-border, $state-warning-text)
+
+  &-danger
+    alert-variant($state-danger-bg, $state-danger-border, $state-danger-text)

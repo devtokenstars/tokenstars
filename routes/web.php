@@ -11,10 +11,34 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::group(['middleware' => 'check_utm'], function() {
+
+Route::namespace('Auth')->group(function () {
+    Route::get('logout', 'LoginController@logout')->name('auth.logout');
+    Route::get('signin', 'LoginController@loginView')->name('login');
+    Route::post('signin', 'LoginController@loginCheck')->name('auth.loginCheck');
+    Route::match(['get', 'post'], 'requestcode', 'LoginController@requestCode')->name('auth.requestCode');
+    Route::get('confirm', 'LoginController@confirm')->name('auth.confirm');
+    Route::match(['get', 'post'], 'signup', 'RegisterController@register')->name('register');
+    Route::match(['get', 'post'], 'check2fa', 'LoginController@checkGoogle2FA')->name('auth.check2fa');
+    // Password Reset Routes...
+    Route::prefix('password')->group(function () {
+        $this->get('reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.request');
+        $this->post('email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+        $this->get('reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset');
+        $this->post('reset', 'ResetPasswordController@reset');
+    });
 });
 
+});
+
+
+Route::prefix('tokens')->group(function () {
+    Route::post('wallet', 'TokensController@wallet')->name('tokens.wallet');
+    Route::post('buy', 'TokensController@buy')->name('tokens.buy');
+    Route::post('wallet_user', 'TokensController@wallet_user')->name('tokens.wallet_user');
+});
 
 Route::namespace('IPN')->prefix('ipn')->group(function () {
     Route::prefix('coinpayments')->group(function () {

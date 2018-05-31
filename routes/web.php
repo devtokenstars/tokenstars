@@ -14,6 +14,11 @@
 
 Route::group(['middleware' => 'check_utm'], function() {
 
+
+Route::post('/telegram/', [
+    'uses' => 'TelegramController@webhook'
+]);
+
 Route::namespace('Auth')->group(function () {
     Route::get('logout', 'LoginController@logout')->name('auth.logout');
     Route::get('signin', 'LoginController@loginView')->name('login');

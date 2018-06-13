@@ -1,0 +1,2416 @@
+$fonts                 : 'Exo 2', Arial, Helvetica, sans-serif
+// Font colors
+$main-font-color       : black
+$alt-font-color        : white
+$sub-font-color        : #808080
+$link-color            : #2962FF
+$link-hover-color      : #1565C0
+$highlight-color       : #1DE9B6
+$highlight-hover-color : #00BFA5
+$violet-font-color     : #343580
+
+// Bg colors
+$main-bg-color         : white
+$alt-bg-color          : #2D4093
+$border-color          : #EBEBEB
+$dark-border-color     : #282A65
+$sub-border-color      : #6961a8
+$icons-bg-color        : #312C70
+
+// Font sizes
+$huge-title-size       : 40px
+$big-title-size        : 36px
+$title-size            : 28px
+$sub-title-size        : 24px
+$big-font-size         : 18px
+$body-font-size        : 16px
+$small-font-size       : 14px
+$super-small-font-size : 12px
+
+@import "sticky-white"
+
+// Media querys
+=respond-to($media)
+    @if $media == retina
+        @media only screen and (-webkit-min-device-pixel-ratio: 2)
+            @content
+    @else if $media == smallPhone
+        @media only screen and (max-width: 575px)
+            @content
+    @else if $media == phone
+        @media only screen and (max-width: 767px)
+            @content
+    @else if $media == tablet
+        @media only screen and (max-width: 991px)
+            @content
+    @else if $media == desktop
+        @media only screen and (max-width: 1199px)
+            @content
+    @else if $media == tablet_up
+        @media only screen and (min-width: 991px)
+            @content
+
+// FOR ALL DEVICES
+
+// FIX FOR BOOTSTRAP
+p, ol, ul
+    margin-top: unset
+    margin-bottom: unset
+    padding: unset
+img
+    vertical-align: unset
+hr
+    margin: 0
+h1, h2, h3, h4, h5, h6
+    font-weight: unset
+    margin: 0
+@mixin row-first-child($col-type)
+    .col-#{$col-type}-
+        &1:nth-child(12n+1),
+        &2:nth-child(6n+1),
+        &3:nth-child(4n+1),
+        &4:nth-child(3n+1),
+        &6:nth-child(odd)
+            clear: left
+.auto-clear
+    @media (min-width: 1200px)
+        @include row-first-child(lg)
+    @media (min-width: 992px) and (max-width: 1199px)
+        @include row-first-child(md)
+    @media (min-width: 768px) and (max-width: 991px)
+        @include row-first-child(sm)
+    @media (max-width: 767px)
+        @include row-first-child(xs)
+
+// Common styles
+*, *:before, *:after
+    box-sizing: border-box
+body, html
+    font-family: $fonts
+    font-size: $body-font-size
+    line-height: 1.2em
+    color: $main-font-color
+    background: $alt-font-color
+    -webkit-text-size-adjust: 100%
+    // -webkit-font-smoothing: antialiased
+.wrap
+    max-width: 1200px
+    padding: 0 40px
+    margin: 0 auto
+    position: relative
+    +respond-to(phone)
+        padding: 0 20px
+    &--narrow
+        max-width: 1024px
+.row-eq-height
+    display: flex
+    flex-wrap: wrap
+.row-no-padding
+    margin-left: 0 !important
+    margin-right: 0 !important
+    [class*="col-"]
+        padding-left: 0 !important
+        padding-right: 0 !important
+.align-left
+    text-align: left
+.align-center
+    text-align: center
+.align-right
+    text-align: right
+.hide
+    display: none !important
+.relative
+    position: relative
+.desktop-only
+    display: block
+    +respond-to(phone)
+        display: none
+.phone-only
+    display: none
+    +respond-to(phone)
+        display: block
+.common-white-box
+    color: black
+    background: white
+    padding: 1px 30px 30px
+    border-radius: 10px
+    box-shadow: 0 2px 14px rgba(black, .5)
+    +respond-to(phone)
+        padding: 1px 20px 20px
+.common-list
+    list-style: none
+    > li
+        text-indent: -0.7em
+        padding-left: 1em
+        padding-bottom: 5px
+        &:before
+            content: '• '
+            font-weight: 700
+            margin-right: 0.3em
+        &:last-child
+            padding-bottom: 0
+
+.border-left
+    &--black
+        border-left: 2px solid rgba(black, .1)
+        +respond-to(tablet)
+            border-left: none
+html
+    &.no-scroll
+        overflow: hidden !important
+        height: 100% !important
+        .header
+            height: 100%
+        .header--index
+            background: $alt-bg-color
+            height: 100%
+        .header-nav__mob-menu
+            > span
+                &:first-child
+                    top: -10px
+                    opacity: 0
+                &:nth-child(2)
+                    transform: rotateZ(45deg)
+                    top: -1.5px
+                &:last-child
+                    transform: rotateZ(-45deg)
+                    top: -8.5px
+
+// Font styles
+.section-title
+    font-size: $big-title-size
+    padding-top: 30px
+    &--labeled
+        display: inline-block
+    +respond-to(smallPhone)
+        font-size: $title-size
+.section-title-label
+    font-size: $sub-title-size
+    line-height: 1.3em
+    display: inline-block
+    padding: 8px 15px
+    margin-top: 20px
+    margin-left: 15px
+    opacity: 0.6
+    border-left: 1px solid rgba(white, .4)
+    box-shadow: -1px 0 0 rgba(black, .6)
+    +respond-to(tablet)
+        display: block
+        border: none
+        box-shadow: none
+        margin-top: 0
+        margin-left: 0
+        padding-left: 0
+    &--small
+        font-size: $big-font-size
+.sub-section-title
+    font-size: $sub-title-size
+    line-height: 1.3em
+    +respond-to(smallPhone)
+        font-size: $big-font-size
+.huge-title-size
+    font-size: $huge-title-size
+.big-title-size
+    font-size: $big-title-size
+    line-height: 1.1em
+    +respond-to(smallPhone)
+        font-size: $title-size
+.title-size
+    font-size: $title-size
+    line-height: 1.3em
+    +respond-to(phone)
+        font-size: $sub-title-size
+.sub-title-size
+    font-size: $sub-title-size
+    line-height: 1.3em
+    +respond-to(phone)
+        font-size: $big-font-size
+.big-font-size
+    font-size: $big-font-size
+    line-height: 1.3em
+.small-font-size
+    font-size: $small-font-size
+.super-small-font-size
+    font-size: $super-small-font-size
+.bold-font, b
+    font-weight: 700
+.medium-font
+    font-weight: 500
+.sub-font-color
+    color: $sub-font-color
+.alt-font-color
+    color: $alt-font-color
+.highlight-color
+    color: $highlight-hover-color
+.violet-color
+    color: $violet-font-color
+.uppercase
+    text-transform: uppercase
+a, .fake-link, .highlight-link
+    text-decoration: none !important
+    color: $link-color
+    cursor: pointer
+    &:hover
+        color: $link-hover-color
+.font-like-link
+    color: $main-font-color
+    &:hover
+        color: $link-hover-color
+.highlight-link
+    color: $highlight-color
+    &:hover
+        color: $highlight-hover-color
+.huge-margin-before
+    margin-top: 30px
+    +respond-to(phone)
+        margin-top: 20px
+.big-margin-before
+    margin-top: 15px
+.medium-margin-before
+    margin-top: 10px
+.small-margin-before
+    margin-top: 5px
+
+// Section styles
+.section-holder
+    padding-bottom: 40px
+    &--border-top
+        border-top: 7px solid rgba(black, .05)
+    +respond-to(phone)
+        padding-bottom: 30px
+
+.alt-bg-color
+    color: $alt-font-color
+    background: $alt-bg-color
+    background-image: linear-gradient(45deg, rgba(0,0,0,0.25) 0%, rgba(111, 60, 172, .7) 100%)
+.banner-bg
+    color: $alt-font-color
+    background: $dark-border-color
+
+// Buttons
+.btn
+    font-weight: 700
+    text-align: center
+    text-decoration: none
+    display: inline-block
+    position: relative
+    border: none
+    outline: none
+    user-select: none
+    -webkit-appearance: none
+    &:focus, &:active, &:active:focus
+        outline: none
+.btn-big
+    font-size: 24px
+    line-height: 50px
+    height: 50px
+    border-radius: 8px
+    padding: 0 1.5em
+    +respond-to(phone)
+        font-size: 20px
+        line-height: 44px
+        height: 44px
+.btn-regular
+    font-size: 16px
+    line-height: 36px
+    height: 36px
+    border-radius: 8px
+    padding: 0 1.5em
+.btn-small
+    font-size: 14px
+    border-radius: 8px
+.btn-blue
+    color: white !important
+    background: $link-color
+    box-shadow: 0 2px 0 #0C40BA
+    &:hover
+        background: $link-hover-color
+.btn-blue-border
+    color: $link-color
+    border: 2px solid $link-color
+.btn-highlight-border
+    color: $highlight-color
+    border: 2px solid $highlight-color
+    &:active, &:focus
+        color: $highlight-color
+    &:hover
+        color: $highlight-hover-color
+    &.btn-big
+        border-width: 2px
+        line-height: 46px
+        +respond-to(phone)
+            line-height: 40px
+.btn-highlight
+    color: black !important
+    background: $highlight-color
+    box-shadow: 0 2px 0 #0A8566
+    &:hover
+        background: $highlight-hover-color
+.btn-long
+    display: block
+    width: 100%
+.btn-white-border
+    line-height: 32px
+    color: $alt-font-color !important
+    border: solid 2px white
+    &:hover
+        color: rgba($alt-font-color,.75) !important
+
+.radio-input
+    display: none
+    & + label
+        font-size: $sub-title-size
+        position: relative
+        padding-left: 40px
+        margin-right: 20px
+        cursor: pointer
+        &:before
+            content: ''
+            width: 28px
+            height: 28px
+            border: 1px solid #ddd
+            border-radius: 50%
+            position: absolute
+            left: 0
+            top: -2px
+        &:after
+            content: ''
+            width: 20px
+            height: 20px
+            background: $link-color
+            position: absolute
+            top: 2px
+            left: 4px
+            border-radius: 50%
+            transition: all 0.2s ease
+            opacity: 1
+            transform: scale(1)
+        &:first-child
+            margin-right: 0
+    &:not(:checked) + label
+        &:after
+            opacity: 0
+            transform: scale(0)
+.select-input
+    font-size: $sub-title-size
+    color: black
+    background: none
+    display: inline-block
+    width: 100%
+    height: 50px
+    position: relative
+    cursor: pointer
+    border: 1px solid #ddd
+    > option
+        font-size: $body-font-size
+
+
+
+
+
+
+
+
+
+// Header styles
+.header
+    background: white
+    width: 100%
+    min-height: 60px
+    position: fixed
+    z-index: 10
+    box-shadow: 0 2px 5px rgba(black, .15)
+    transition: height 0.2s ease
+    &.scrolled
+        .header-nav__listitem--highlighted
+            > a
+                color: white
+                background: $link-color
+                padding: 10px 10px
+                margin-top: 13px
+                border-radius: 8px
+                vertical-align: top
+.header-clear
+    height: 60px
+.header-logo
+    display: inline-block
+    height: 60px
+    &--big
+        height: 100px
+        +respond-to(phone)
+            width: 80%
+.header-logo__image
+    height: 20px
+    margin-right: 10px
+    margin-left: 3px
+    position: relative
+    top: 50%
+    transform: translateY(-50%)
+    vertical-align: middle
+    cursor: pointer
+    &:last-child
+        margin-right: 0
+    +respond-to(tablet)
+        height: 15px
+        vertical-align: unset
+    &--big
+        height: 34px
+        +respond-to(tablet)
+            height: 25px
+        +respond-to(phone)
+            margin-top: 20px
+            top: unset
+            transform: none
+            height: unset
+            max-width: 100%
+            max-height: 25px
+.header-logo__label
+    font-size: $sub-title-size
+    line-height: 1.3em
+    display: inline-block
+    padding: 10px 15px 10px
+    margin-left: 5px
+    position: relative
+    top: 50%
+    transform: translateY(-50%)
+    opacity: 0.6
+    border-left: 1px solid rgba(white, .4)
+    box-shadow: -1px 0 0 rgba(black, .6)
+    vertical-align: top
+    +respond-to(tablet)
+        border: none
+        box-shadow: none
+        margin-left: 0
+        padding-left: 0
+    +respond-to(phone)
+        font-size: $big-font-size
+        padding: 10px 0 0
+        top: unset
+        transform: none
+.header-nav
+    float: right
+    +respond-to(tablet)
+        width: 100%
+        height: 0
+        overflow: hidden
+        &.opened
+            height: calc(100vh - 60px)
+            position: absolute
+            top: 60px
+            left: 0
+            overflow-y: scroll
+.header-nav__list
+    list-style: none
+    position: initial
+.header-nav__listitem
+    font-weight: 500
+    display: inline-block
+    padding: 0 8px
+    margin-top: 15px
+    vertical-align: middle
+    &--big
+        padding: 35px 10px 0
+    > a
+        color: black
+        text-decoration: none
+    &:lang(ja)
+        font-size: $super-small-font-size
+    +respond-to(tablet_up)
+        &--bottom
+            background: white
+            padding: 3px 20px 10px
+            position: absolute
+            bottom: -32px
+            right: 80px
+            box-shadow: 0 4px 5px rgba(black, .15)
+            border-bottom-left-radius: 5px
+            border-bottom-right-radius: 5px
+            > a
+                color: $link-color
+    +respond-to(tablet)
+        text-align: center
+        width: 100%
+.header-nav__telegram
+    height: 26px
+    position: relative
+    top: 3px
+.header-nav__mob-menu
+    display: none
+    +respond-to(tablet)
+        display: block
+        width: 26px
+        height: 43px
+        margin-top: 17px
+        border-radius: 8px
+        float: right
+        > span
+            background: grey
+            margin-top: 5px
+            display: block
+            width: 26px
+            height: 2px
+            border-radius: 3px
+            position: relative
+            -webkit-transform: rotate(0)
+            transform: rotate(0)
+            -webkit-transition: all .2s ease-in-out
+            transition: all .2s ease-in-out
+.header-nav__lang
+    width: 50px
+    margin: 0 auto
+    position: relative
+.header-nav__lang_selector
+    width: 50px
+    height: 30px
+    position: absolute
+    top: 50%
+    left: 0
+    transform: translateY(-50%)
+    z-index: 0
+    opacity: 0
+.header-nav__flag
+    background-size: 17px 14px
+    background-position: 6px 6.5px
+    background-repeat: no-repeat
+    display: inline-block
+    width: 50px
+    height: 30px
+    padding: 4px
+    vertical-align: middle
+    position: relative
+    border: 1px solid $border-color
+    border-radius: 8px
+    &:after
+        content: ''
+        width: 0
+        height: 0
+        border-style: solid
+        border-width: 6px 5px 0 5px
+        border-color: $border-color transparent transparent transparent
+        position: absolute
+        top: 12px
+        right: 8px
+    &.flag-en
+        background-image: url('/images/ace/uk.svg')
+    &.flag-ru
+        background-image: url('/images/ace/ru.png')
+    &.flag-ja
+        background-image: url('/images/ace/jp.png')
+    &.flag-zh
+        background-image: url('/images/ace/zh.png')
+    &.flag-ko
+        background-image: url('/images/ace/ko.png')
+
+
+// Main Screen
+.main
+    color: white
+    background: url('/images/ace/tech-version/main-bg.jpg') no-repeat 50% 50% / cover
+    height: 100%
+    position: relative
+    z-index: 0
+    &--team
+        background: url('/images/team/main-bg.jpg') no-repeat 50% 50% $alt-bg-color  / cover
+        padding-top: 70px
+        +respond-to(phone)
+            padding-top: 60px
+        +respond-to(smallPhone)
+            padding-top: 80px
+.main-left-side
+    background: rgba(black,.4)
+    width: calc(100% + 40px)
+    height: calc(100% + 40px)
+    margin: 0 0 0 -40px
+    position: absolute
+    top: 0
+    left: 0
+    z-index: -1
+    &:after
+        content: ''
+        width: 50px
+        height: 50%
+        background: linear-gradient(to right bottom, rgba(0, 0, 0, 0.40) 49%, transparent 51%)
+        position: absolute
+        top: 50%
+        right: -50px
+    &:before
+        content: ''
+        width: 50px
+        height: 50%
+        background: linear-gradient(to right top, rgba(0, 0, 0, 0.40) 49%, transparent 51%)
+        position: absolute
+        top: 0
+        right: -50px
+    +respond-to(tablet)
+        width: calc(100% + 10px)
+        height: calc(100% + 20px)
+        margin: 0 -5px
+        &:after
+            content: ''
+            width: 50%
+            height: 30px
+            background: linear-gradient(to right bottom, rgba(0, 0, 0, 0.40) 49%, transparent 51%)
+            top: 100%
+            left: 50%
+        &:before
+            content: ''
+            width: 50%
+            height: 30px
+            background: linear-gradient(to left bottom, rgba(0, 0, 0, 0.40) 49%, transparent 51%)
+            top: 100%
+            left: 0
+.main-title
+    font-size: $huge-title-size
+    font-weight: 700
+    line-height: 1.2em
+    text-transform: uppercase
+    margin-top: 40px
+    +respond-to(phone)
+        font-size: 26px
+    &--team
+        margin-top: 40px
+.main-subtitle
+    font-size: $big-title-size
+    color: $highlight-color
+    > span
+        font-size: 60px
+        display: block
+    +respond-to(phone)
+        font-size: $title-size
+        > span
+            font-size: 40px
+.main-btn-icon
+    max-height: 24px
+    margin-right: 10px
+    position: relative
+    top: 50%
+    transform: translateY(-50%)
+    vertical-align: top
+.main-progress
+    &__subtitle
+        font-size: $title-size
+        font-weight: 700
+    &__info
+        font-size: $big-font-size
+        font-weight: 700
+.main-progress-bar
+    font-weight: 700
+    background: rgba(black, .15)
+    width: 100%
+    height: 46px
+    margin-top: 20px
+    border: 3px solid rgba(black, .05)
+    border-radius: 15px
+    position: relative
+    overflow: hidden
+    &__sale
+        font-size: $small-font-size
+        color: rgba(black,.8)
+        white-space: pre
+        background: linear-gradient(to right, rgba(#16FFFF, .8) 0, rgba(#85FFB5, .8) 100%)
+        line-height: 40px
+        height: 40px
+        margin: 0
+        padding-left: 20px
+        // padding-left: calc(30% + 10px)
+        position: absolute
+        left: 0
+        > span
+            line-height: normal
+            display: table-cell
+            vertical-align: middle
+    &__presale
+        color: rgba(white,.8)
+        background: rgba(black, .25)
+        line-height: 40px
+        display: table
+        height: 40px
+        margin: 0
+        position: absolute
+        left: 0
+        padding-left: 10px
+        > span
+            line-height: normal
+            display: table-cell
+            vertical-align: middle
+    +respond-to(phone)
+        &__sale, &__presale
+            font-size: 12px
+.main-progress__description
+    margin-top: 15px
+.main-line
+    &--white
+        width: 100%
+        height: 2px
+        background: rgba(white,.3)
+    &--black
+        width: 100%
+        height: 2px
+        background: rgba(black,.1)
+.main-form
+    color: black
+    text-align: center
+    margin-top: 40px
+    padding: 30px 30px
+    background: white
+    box-shadow: 0 2px 14px rgba(black, .5)
+    border-radius: 10px
+    +respond-to(tablet)
+        margin-top: 70px
+    +respond-to(phone)
+        margin-top: 30px
+        padding: 30px 20px
+    +respond-to(smallPhone)
+        margin: 30px -20px
+.main-form__title
+    font-size: $big-title-size
+    +respond-to(phone)
+        font-size: $sub-title-size
+.main-form__input
+    font-size: $sub-title-size
+    padding: 15px
+    background: rgba(white, .85)
+    display: block
+    width: 100%
+    border: 1px solid #ddd
+    border-radius: 5px
+    outline: none
+    text-decoration: none
+    &:focus
+        border: 1px solid $link-color
+    &::placeholder
+        color: #b1b1b1
+    +respond-to(phone)
+        padding: 10px 15px
+.main-review-holder
+    padding-top: 20px
+    border-top: solid 1px rgba(black,.2)
+    box-shadow: 0 -1px 0 rgba(white,.2)
+    +respond-to(smallPhone)
+        padding-top: 10px
+.main-review-badge
+    width: 160px
+    margin-top: 5px
+    margin-right: 5px
+    border-radius: 10px
+    cursor: pointer
+    &:hover
+        box-shadow: 0 0 12px rgba($highlight-color,.8)
+    +respond-to(smallPhone)
+        width: 103px
+.main-counter
+    margin: 20px -4px
+.main-counter__item
+    background: white
+    display: inline-block
+    width: calc(25% - 11px)
+    margin: 0 4px
+    padding: 15px 10px 10px
+    border-radius: 8px
+    box-shadow: 0 1px 4px rgba(black, .25)
+    text-overflow: ellipsis
+    overflow: hidden
+.main-social-item
+    font-size: $big-font-size
+    color: white
+    margin-right: 30px
+    &:last-child
+        margin-right: 0
+    &:hover
+        color: white
+        text-decoration: none
+    > img
+        max-width: 25px
+        margin-right: 10px
+        vertical-align: middle
+    +respond-to(phone)
+        margin-right: 20px
+        > img
+            max-width: 20px
+            margin-right: 5px
+.main-feature
+    display: table-cell
+    height: 45px
+    padding-top: 55px
+    position: relative
+    +respond-to(smallPhone)
+        display: block
+        height: auto
+        padding-top: 5px
+        padding-left: 55px
+.main-feature__image
+    height: 45px
+    position: absolute
+    top: 0
+    left: 0
+
+
+// Chat popup
+.chat-float-holder
+    background: $main-bg-color
+    padding: 15px 25px
+    border-radius: 10px
+    box-shadow: 0 3px 10px rgba(black, .18)
+    position: fixed
+    right: 30px
+    bottom: 30px
+    z-index: 5
+    +respond-to(tablet)
+        display: none
+.chat-float-photo
+    vertical-align: middle
+    background-color: $border-color
+    background-size: cover
+    display: inline-block
+    width: 45px
+    height: 45px
+    margin-right: 5px
+    border-radius: 50px
+.chat-float-icon
+    vertical-align: middle
+    display: inline-block
+    height: 16px
+    margin-top: -2px
+    margin-right: 3px
+
+
+// Vision
+.vision
+    background: url('/images/ace/tech-version/vision-bg.jpg') no-repeat 100% 0% / contain
+    height: 100%
+    position: relative
+    z-index: 0
+.vision-grey-banner
+    background: rgba($border-color, .75)
+    margin-left: -40px
+    margin-right: -40px
+    padding: 0 40px 30px
+    +respond-to(phone)
+        margin-left: -20px
+        margin-right: -20px
+        padding: 5px 20px 30px
+.vision-list
+    padding-left: 20px
+.vision-list__item
+    & + &
+        padding-top: 10px
+
+
+// Why
+.why
+    position: relative
+.why-bg
+    background: url('/images/ace/tech-version/why-bg.png') no-repeat
+    background-position: right top
+    background-size: cover
+    width: 100%
+    height: 100%
+    position: absolute
+    top: 0
+    left: 0
+
+
+// Modules
+.module-section
+    position: relative
+.module-block
+    border-top: solid 10px rgba(black, .2)
+.module-image
+    margin-top: 30px
+    max-width: 100%
+    +respond-to(phone)
+        max-height: 150px
+.module-2
+    .section-title
+        margin-top: 50px
+        +respond-to(phone)
+            margin-top: 0
+.module-4
+    .module-image
+        margin-bottom: -33px
+    .section-title
+        margin-top: 90px
+        +respond-to(phone)
+            margin-top: 10px
+.module-5
+    .module-image
+        margin-bottom: -33px
+    .section-title
+        margin-top: 50px
+.module-6
+    .module-image
+        margin-bottom: -33px
+    .section-title
+        margin-top: 30px
+        +respond-to(phone)
+            margin-top: 0
+            word-wrap: break-word
+.module-7
+    .section-title
+        margin-top: 30px
+.module-8
+    .section-title
+        margin-top: 20px
+        +respond-to(phone)
+            margin-top: 0
+.module-9
+    .section-title
+        margin-top: 40px
+        +respond-to(phone)
+            margin-top: 0
+.module-11
+    .section-title
+        margin-top: 25px
+        +respond-to(phone)
+            margin-top: 0
+.module-12
+    .section-title
+        margin-top: 60px
+        +respond-to(phone)
+            margin-top: 0
+.module-scroll-holder
+    font-size: $big-font-size
+    text-align: center
+    color: white
+    background: rgba(black, .5)
+    padding: 20px 40px
+    position: absolute
+    left: 50%
+    bottom: 20px
+    transform: translateX(-50%)
+    border-radius: 30px
+    z-index: 5
+    opacity: 0.75
+    cursor: pointer
+    opacity: 0
+    visibility: none
+    transition: opacity 0.5s ease-in-out
+    +respond-to(phone)
+        padding: 15px 20px
+        min-width: 80%
+    &.fixed
+        position: fixed
+        visibility: visible
+        opacity: 0.6
+        visibility: visible
+        &:hover
+            opacity: 1
+    > img
+        max-height: 16px
+        margin-right: 10px
+        vertical-align: middle
+        +respond-to(phone)
+            display: block
+            margin: 0 auto 5px
+
+
+// Smart
+.smart
+    background: linear-gradient(to right, #212F6C 0%, #3E388C 100%)
+    background-size: 100% 50%
+    background-repeat: no-repeat
+    padding-top: 30px
+    box-shadow: inset 0 30px 0 rgba(black, .2)
+.smart-team
+    background: linear-gradient(45deg, rgb(55, 52, 129) 0%, rgb(91, 62, 165) 100%)
+    background-position: bottom
+    background-repeat: no-repeat
+    padding-top: 30px
+    padding-bottom: 60px
+    box-shadow: inset 0 -30px 0 rgba(black, .2), inset 0 10px 0 #EFEFEF
+.gist
+    max-width: 900px !important
+    width: auto !important
+    margin: 0 auto
+.gist-data
+    max-height: 300px
+    max-width: 900px
+.gist .blob-code-inner
+    +respond-to(tablet)
+        white-space: normal !important
+
+
+
+// Roadmap
+.roadmap-holder
+    +respond-to(phone)
+        display: none
+.roadmap-point
+    display: inline-block
+    width: 11.111%
+    position: relative
+    +respond-to(phone)
+        width: 100%
+        margin-top: 10px
+        &:first-child
+            margin-top: 0
+    &:after
+        content: ''
+        background: $highlight-color
+        width: 28px
+        height: 28px
+        border: solid 4px $sub-border-color
+        border-radius: 28px
+        position: absolute
+        z-index: 3
+        +respond-to(phone)
+            display: none
+    .roadmap-top-row &
+        vertical-align: bottom
+        margin-right: 11.111%
+        +respond-to(phone)
+            margin-right: 0
+        &:after
+            margin-top: 15px
+            top: 100%
+        &:last-child
+            margin-right: 0
+    .roadmap-bottom-row &
+        vertical-align: top
+        margin-top: 53px
+        margin-left: 11.111%
+        &:after
+            margin-bottom: 10px
+            bottom: 100%
+.roadmap-bottom-row
+    position: relative
+    &:before
+        content: ''
+        background: $sub-border-color
+        height: 4px
+        position: absolute
+        top: 27px
+        right: 11.111%
+        left: 0
+        z-index: 1
+        +respond-to(phone)
+            display: none
+.roadmap-features-holder
+    font-size: $big-font-size
+    line-height: 1.3em
+    background: $dark-border-color
+    padding: 20px 0
+.roadmap-feature
+    position: relative
+    +respond-to(phone)
+        padding-left: 25px
+    & + &
+        +respond-to(phone)
+            margin-top: 5px
+    &:before, &:after
+        content: ''
+        width: 0
+        height: 0
+        border-top: 25px solid transparent
+        border-bottom: 25px solid transparent
+        border-left: 20px solid $sub-border-color
+        position: absolute
+        top: 0
+        right: 25%
+        +respond-to(phone)
+            display: none
+    &:lang(ru)
+        &:before, &:after
+            right: 10%
+    &:after
+        border-left-color: $dark-border-color
+        margin-right: 4px
+        +respond-to(phone)
+            display: none
+    &:before
+        +respond-to(phone)
+            content: '•'
+            border: none
+            display: inline-block
+            left: 10px
+    &:last-child
+        &:before, &:after
+            display: none
+            +respond-to(phone)
+                display: inline-block
+.roadmap-graph
+    width: 100%
+.roadmap-graph-splitter
+    position: relative
+    &:before
+        content: ''
+        background: $dark-border-color
+        width: 4px
+        margin-left: -2px
+        position: absolute
+        top: 50px
+        bottom: 00px
+        left: 50%
+        +respond-to(phone)
+            display: none
+.roadmap-hor-splitter
+    border-top: solid 5px $dark-border-color
+
+// Team
+.team-feature
+    vertical-align: middle
+    display: table-cell
+    height: 45px
+    padding-left: 55px
+    position: relative
+.team-feature-image
+    width: 45px
+    position: absolute
+    top: 0
+    left: 0
+    +respond-to(phone)
+        margin-top: -23px
+        top: 50%
+.team-holder
+    border-top: solid 10px $border-color
+    &--light
+        border-top: solid 10px #f7f7f7
+.team-mob-limit
+    +respond-to(phone)
+        &.closed
+            .team-item-mob
+                &:nth-child(n+4)
+                        display: none
+.team-mob-show-btn
+    display: none
+    +respond-to(phone)
+        display: inline-block
+.team-card
+    text-align: center
+    background: $main-bg-color
+    border: solid 1px $border-color
+    border-radius: 5px
+    min-height: 215px
+    margin-top: 25px
+    padding: 10px
+    +respond-to(phone)
+        text-align: left
+        margin-top: 10px
+        padding-left: 70px
+        position: relative
+        pointer-events: none
+    &:hover
+        margin-right: -15px
+        margin-left: -15px
+        position: relative
+        z-index: 3
+        .team-description
+            background: $main-bg-color
+            display: block
+            margin-top: -10px
+            padding: 10px 10px 15px
+            border: solid 1px $border-color
+            border-top: none
+            border-bottom-left-radius: 10px
+            border-bottom-right-radius: 10px
+            box-shadow: 0px 2px 3px rgba(black,.05)
+            position: absolute
+            top: 100%
+            right: -1px
+            left: -1px
+.team-photo-holder
+    display: block
+    margin: 0 auto
+    background-size: cover
+    width: 100px
+    height: 100px
+    border-radius: 100px
+    +respond-to(phone)
+        width: 50px
+        height: 50px
+        position: absolute
+        left: 10px
+        top: 10px
+.team-description
+    display: none
+    +respond-to(phone)
+        display: block
+.team-social-link
+    width: 24px
+    margin-top: 5px
+    opacity: .7
+    &:hover
+        opacity: 1
+.team-logos
+    display: block
+    float: right
+    width: 80%
+    margin-top: 35px
+    +respond-to(phone)
+        float: none
+
+// Ecosystem
+.eco-header-img
+    width: 80%
+.eco-vision-part
+    border-top: solid 10px $dark-border-color
+.eco-bonus-holder
+    background: $dark-border-color
+    padding: 75px 50px
+    +respond-to(phone)
+        margin-top: 25px
+        padding: 30px 15px
+
+
+
+// Allocation
+.distribution-pie-chart
+    filter: drop-shadow( 0px 10px 10px rgba(#003cff, 0.2))
+    .nvd3.nv-pie path
+        stroke: transparent
+        fill-opacity: 1
+    &.nvd3-svg
+        max-width: 400px
+.nvtooltip
+    color: white
+    background: rgba(black, .8)
+    .legend-color-guide
+        opacity: 0
+.nvtooltip table td.value
+    font-size: 18px
+    font-weight: 400
+    display: block
+.distribution-legend__list
+    padding: 0
+    list-style-type: none
+    > li
+        margin: 0.3em 0
+        position: relative
+.distribution-legend__value
+    text-align: right
+    display: inline-block
+    width: 50px
+    position: absolute
+    top: 0
+    left: 0
+.distribution-legend__color
+    background-color: black
+    display: inline-block
+    margin: 0 10px
+    width: 10px
+    height: 10px
+    border-radius: 50%
+    position: absolute
+    top: 8px
+    left: 50px
+.distribution-legend__label
+    font-size: 16px
+    display: inline-block
+    padding-left: 80px
+    padding-bottom: 8px
+    position: relative
+    &.bold
+        font-weight: 600
+.distribution__image
+    max-width: 100%
+
+// Partners
+.partners-holder
+    .section-title
+        +respond-to(smallPhone)
+            padding-top: 20px
+.partners-logos
+    max-width: 100%
+
+// Press
+.lSSlideOuter
+    position: relative
+    z-index: 1
+.press-card
+    background: $main-bg-color
+    margin: 30px 5px 5px
+    padding: 20px
+    border-radius: 5px
+    // box-shadow: 0 2px 13px rgba(black,.15)
+    border: solid 2px rgba(black,.15)
+    &:lang(ru)
+        min-height: 290px
+    +respond-to(tablet)
+        min-height: 0
+.press-logos-holder
+    margin: -100px 15px 0
+    padding: 110px 15px 10px
+    border: solid 2px $border-color
+    border-bottom-left-radius: 10px
+    border-bottom-right-radius: 10px
+    +respond-to(smallPhone)
+        margin-right: -20px
+        margin-left: -20px
+    .row
+        line-height: 70px
+    img
+        vertical-align: middle
+        max-width: 100%
+        max-height: 60px
+        transition: all 0.1s ease-in-out
+        &:hover
+            transform: scale(1.1)
+.press-logos
+    width: 100%
+.press-logo
+    display: block
+    height: 45px
+    margin: 0 auto 15px
+
+// Events
+.events-holder
+    color: white
+    background: #24255C
+    background: url('/images/team/events/bg.jpg')
+    background-size: cover
+    background-position: center
+    margin-top: 20px
+    padding: 0 10px
+    border-radius: 10px
+    +respond-to(phone)
+        padding: 0 20px
+.event-section
+    padding: 30px 10px 20px
+    border-right: 5px solid rgba(white,.2)
+    +respond-to(phone)
+        padding: 20px 10px
+        border-right: none
+        border-bottom: 2px solid rgba(white,.2)
+    &:last-child
+        border-right: none
+        border-bottom: none
+    a
+        display: inline-block
+        margin-top: 15px
+        +respond-to(phone)
+            margin-top: 10px
+.event-subtitle
+    font-size: $big-title-size
+    font-weight: 500
+    color: rgba(white, .4)
+    text-transform: uppercase
+    +respond-to(phone)
+        font-size: $sub-title-size
+.event-logo
+    max-width: 100%
+    max-height: 75px
+    transition: all .1s ease-in-out
+    &:hover
+        transform: scale(1.1)
+
+// Learn More
+.learn-list__item
+    padding-left: 30px
+    list-style: none
+    > h3
+        font-size: $sub-title-size
+        color: $link-color
+        position: relative
+        cursor: pointer
+        &:hover
+            color: $link-hover-color
+        &:before
+            content: '\2014'
+            position: absolute
+            left: -30px
+        +respond-to(phone)
+            font-size: $big-font-size
+    > p
+        max-height: 0
+        overflow: hidden
+        transition: max-height 0.1s ease
+    &.opened
+        > p
+            max-height: 500px
+
+// Downloads
+.downloads-box
+    color: black
+    text-align: center
+    background: white
+    height: 100%
+    padding: 0 0 80px
+    border-radius: 10px
+    box-shadow: 0 2px 13px rgba(black,.15)
+    position: relative
+    overflow: hidden
+.downloads-box__image
+    width: 100%
+.downloads-box__bottom-block
+    position: absolute
+    right: 20px
+    bottom: 20px
+    left: 20px
+.materials-video-link
+    display: block
+    position: relative
+    &:before
+        content: ''
+        width: 0
+        height: 0
+        border-style: solid
+        border-width: 20px 0 20px 40px
+        border-color: transparent transparent transparent rgba(white, 1)
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        opacity: 0.8
+        transition: all 0.1s ease-in-out
+    &:hover
+        &:before
+            opacity: 1
+            transform: translate(-50%, -50%) scale(1.2)
+            border-color: transparent transparent transparent #01d0ff
+.bottom-sale-holder
+    border-top: solid 10px $dark-border-color
+
+
+
+// QR Section
+.qr-section
+    border-bottom: 10px solid $border-color
+.qr__image
+    max-width: 300px
+    padding: 30px 40px
+    border-radius: 30px
+    border: 10px solid $alt-bg-color
+    box-shadow: 0 0 20px 3px rgba(black, .1)
+
+
+
+// Footer TO FIX
+.footer-mail
+    display: inline-block
+    opacity: 0.6
+.footer-terms
+    margin-right: 20px
+    opacity: 0.6
+.footer-social-link
+    display: inline-block
+    border-radius: 50px
+    vertical-align: middle
+    border: 5px solid white
+    padding: 10px
+    text-align: center
+    opacity: 0.5
+    img
+        max-height: 35px
+        max-width: 35px
+        +respond-to(phone)
+            max-height: 25px
+            max-width: 25px
+    &:hover
+        opacity: 1
+.footer-nav
+    a
+        margin-right: 20px
+
+
+// Popup
+.popup-container
+    background-color: rgba(0, 0, 0, 0.5)
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.5))
+    display: none
+    width: 100%
+    height: 100%
+    overflow: auto
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 10
+    &.showing
+        display: block
+.popup-holder
+    background-color: white
+    margin: -600px auto 0
+    margin-top: 10%
+    &--default
+        max-width: 60%
+        padding: 60px
+        margin-top: 50px
+        position: relative
+        +respond-to(phone)
+            max-width: 100%
+            margin: 40px 20px
+            padding: 25px 30px 30px
+            border-radius: 10px
+.popup-holder-video
+    max-width: 70%
+    margin: 0 auto
+    position: relative
+    top: 50%
+    transform: translateY(-50%)
+.popup-holder-video-container
+    width: 100%
+    height: 0
+    padding-bottom: 56.25%
+    position: relative
+    iframe
+        position: absolute
+        width: 100%
+        height: 100%
+        left: 0
+        top: 0
+.popup-hide-btn
+    background: white
+    padding: 12px
+    display: inline-block
+    width: 50px
+    height: 50px
+    position: absolute
+    top: 5px
+    right: 5px
+    z-index: 1
+    cursor: pointer
+    +respond-to(phone)
+        width: 20px
+        height: 20px
+        padding: 0
+    &:hover
+        img
+            opacity: 1
+    img
+        max-width: 100%
+        vertical-align: top
+        opacity: 0.5
+
+
+
+
+
+
+
+//****** Index Page Styles ******//
+$index-green-color                  : #00C198
+
+.index-green-color
+    color: $index-green-color
+
+.section-top-line
+    border-top: 1px solid rgba(white, .2)
+    box-shadow: 0 -1px 0 rgba(black, .2)
+
+.header--index
+    color: white
+    background: transparent
+    width: 100%
+    height: 100px
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 10
+
+.index-main-section
+    color: $alt-font-color
+    background: $alt-bg-color
+    background-image: url('/images/index-bg.jpg')
+    background-size: cover
+    background-repeat: no-repeat
+    padding-top: 100px
+
+.vertical-box
+    color: white
+    text-align: center
+    background: rgba(black, .5)
+    display: block
+    margin-top: 10px
+    padding: 20px
+    box-shadow: 0 2px 14px rgba(black, .5)
+    border-radius: 8px
+    cursor: pointer
+    transition: all 0.2s ease-in-out
+    &:hover, &:focus
+        color: white
+        text-decoration: none
+    &:hover
+        transform: scale(1.05)
+    &--disabled
+        background: rgba(black, .1)
+        box-shadow: none
+        cursor: default
+        &:hover
+            transform: none
+    > label
+        opacity: 0.6
+.vertical-box_image
+    max-width: 150px
+    max-height: 150px
+    +respond-to(phone)
+        max-height: 100px
+.vertical-box_title
+    font-size: 50px
+
+
+// Team Landing
+.tokens-block
+    text-align: center
+    background: $border-color
+    border-radius: 10px
+    overflow: hidden
+.tokens-block-item
+    padding: 20px 100px
+    +respond-to(phone)
+        padding: 20px
+    &__left-side
+        color: white
+        background: #33319C
+.tokens-block__image
+    max-height: 80px
+    +respond-to(phone)
+        max-height: 70px
+.tokens-ace-circle
+    display: inline-block
+    padding: 19px 15px
+    border: 2px dashed white
+    border-radius: 50%
+    position: absolute
+    top: 10px
+    left: 10px
+
+.ambassador-card__image
+    background-color: #f7f7f7
+    background-size: cover
+    background-position: center
+    width: 180px
+    height: 180px
+    margin-right: auto
+    margin-left: auto
+    position: relative
+    +respond-to(phone)
+        float: left
+        width: 100px
+        height: 100px
+        margin: 0 10px 0 0
+        pointer-events: none
+    &.ambassador-hover
+        cursor: pointer
+        &:hover:before
+            content: ''
+            background: url('/images/team/ambassador-hover.png')
+            background-size: cover
+            background-position: center
+            display: block
+            width: 100%
+            height: 100%
+            position: absolute
+            top: 0
+            right: 0
+            bottom: 0
+            left: 0
+            z-index: 5
+.ambassador-card
+    text-transform: uppercase
+    margin-top: 25px
+    +respond-to(phone)
+        text-transform: none
+        text-align: left
+.ambassador-learn-more
+    background: $border-color
+    display: inline-block
+    margin-top: 30px
+    padding: 11px 20px 10px
+    border-radius: 50px
+    +respond-to(phone)
+        display: none
+    > img
+        vertical-align: middle
+        margin: -6px 8px 0 0
+.ambassador-phone-text
+    display: none
+    +respond-to(phone)
+        display: block
+.ambassador-popup-holder
+    background: rgba($alt-bg-color,.95)
+    width: 100%
+    height: 100%
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 10
+.ambassador-popup
+    background: white
+    width: 600px
+    min-height: 240px
+    margin: -120px 0 0 -300px
+    padding: 20px 30px 30px 30px
+    border-radius: 10px
+    box-shadow: 0 0 20px rgba(black,.2)
+    position: absolute
+    top: 50%
+    left: 50%
+.popup-close
+    width: 16px
+    height: 16px
+    position: absolute
+    top: 15px
+    right: 15px
+    cursor: pointer
+    opacity: .5
+    &:hover
+        opacity: 1
+.ambassador-card-popup
+    overflow: hidden
+    .ambassador-card__image
+        vertical-align: middle
+        display: inline-block
+        margin-right: 30px
+.ambassador-card-popup-text
+    vertical-align: middle
+    display: inline-block
+    width: 315px
+
+
+.rico-images
+    max-width: 100%
+    box-shadow: 0 0 10px rgba(black, .4)
+    +respond-to(tablet)
+        max-height: 400px
+
+.platform-scheme
+    display: block
+    max-width: 70%
+    margin: 30px auto 0
+    +respond-to(phone)
+        max-width: 100%
+        margin: 20px auto 0
+.platform-description-holder
+    margin-top: 2px
+.platform-description-toggle
+    padding-top: 35px
+    position: relative
+    +respond-to(phone)
+        padding-top: 25px
+    &:after
+        content: ''
+        background: url('/images/team/platform/platform-description-bg.png') center center no-repeat
+        background-position: cover
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        z-index: 0
+    .wrap
+        z-index: 1
+.platform-holder
+    border-radius: 10px
+    padding: 0 20px 20px
+    margin: 0 -20px
+.platform-star-holder
+    padding-left: 100px
+    position: relative
+    +respond-to(phone)
+        text-align: center
+        padding-left: 0
+.platform-star
+    max-width: 90px
+    position: absolute
+    top: 20px
+    left: 0
+    +respond-to(phone)
+        max-width: 50px
+        display: block
+        margin: 0 auto
+        position: relative
+.platform-tokens-block
+    text-align: right
+    +respond-to(phone)
+        text-align: center
+.platform-tabs-holder
+    font-weight: 700
+    color: black
+    background: white
+    list-style: none
+    padding: 10px 5px
+    border-radius: 5px
+    display: flex
+    justify-content: space-around
+    > li
+        display: inline-block
+    span
+        padding: 15px 30px
+        border-radius: 5px
+        cursor: pointer
+        &.selected
+            background: $highlight-color
+        &:lang(ru)
+            font-size: $small-font-size
+    +respond-to(tablet)
+        font-size: $small-font-size
+        span
+            padding: 15px 10px
+    +respond-to(phone)
+        text-align: center
+        display: block
+        > li
+            display: block
+        span
+            display: block
+            padding: 15px
+.platform-token
+    text-align: center
+    display: inline-block
+    background: #2962FF
+    width: 70px
+    height: 70px
+    padding-top: 15px
+    margin-right: 30px
+    margin-bottom: 20px
+    border-radius: 50%
+    position: relative
+    cursor: pointer
+    &:hover
+        background: $highlight-color
+    &:last-child
+        margin-right: 0
+        margin-left: 10px
+    &:after
+        content: attr(data-status)
+        color: rgba(white, .75)
+        font-weight: 700
+        text-transform: uppercase
+        position: absolute
+        left: 50%
+        bottom: -25px
+        transform: translateX(-50%)
+        white-space: nowrap
+    &.highlighted
+        &:after
+            color: $highlight-color
+.platform-token-border
+    display: inline-block
+    padding-left: 10px
+    position: relative
+    &:before
+        content: ''
+        border-left: 2px dashed rgba(black, .2)
+        width: 1px
+        height: 100%
+        position: absolute
+        top: 0
+        left: 0
+.platform-items-row
+    margin-top: 15px
+    padding-bottom: 20px
+    border-bottom: dashed 2px rgba($border-color,.1)
+    &:last-child
+        padding-bottom: 0
+        border-bottom: none
+.platform-items-row-label
+    text-transform: uppercase
+    opacity: 0.75
+.platform-item
+    color: white
+    font-weight: 700
+    display: inline-block
+    width: calc(33.333% - 13.5px)
+    background: #181D45
+    padding: 20px 20px 20px 80px
+    margin: 0 20px 0 0
+    float: left
+    position: relative
+    outline: none
+    &:hover, &:active, &:focus
+        color: white
+        text-decoration: none
+    &:before
+        content: ''
+        width: 60px
+        height: 60px
+        position: absolute
+        top: 50%
+        left: 10px
+        transform: translateY(-50%)
+    &:after
+        content: ''
+        background: #181D45
+        width: 20px
+        height: 6px
+        position: absolute
+        top: 50%
+        left: 100%
+        transform: translateY(-50%)
+    &:last-child
+        margin-right: 0
+        &:after
+            content: none
+    &.highlighted
+        color: $highlight-color
+    &.selected-token
+        color: white
+        background: $link-color
+    +respond-to(phone)
+        width: 100%
+        margin: 0 0 20px
+        &:after
+            width: 6px
+            height: 40px
+            top: 100%
+            left: 50%
+    &--crowd
+        &:before
+            background: url('/images/team/platform/crowd.png')
+        &.highlighted
+            &:not(.selected-token)
+                &:before
+                    background: url('/images/team/platform/crowd-highlighted.png')
+    &--time
+        &:before
+            background: url('/images/team/platform/time.png')
+        &.highlighted
+            &:not(.selected-token)
+                &:before
+                    background: url('/images/team/platform/time-highlighted.png')
+    &--income
+        &:before
+            background: url('/images/team/platform/income.png')
+        &.highlighted
+            &:not(.selected-token)
+                &:before
+                    background: url('/images/team/platform/income-highlighted.png')
+    &--video
+        &:before
+            background: url('/images/team/platform/video.png')
+        &.highlighted
+            &:not(.selected-token)
+                &:before
+                    background: url('/images/team/platform/video-highlighted.png')
+    &--percent
+        &:before
+            background: url('/images/team/platform/percent.png')
+        &.highlighted
+            &:not(.selected-token)
+                &:before
+                    background: url('/images/team/platform/percent-highlighted.png')
+    &--cup
+        &:before
+            background: url('/images/team/platform/cup.png')
+        &.highlighted
+            &:not(.selected-token)
+                &:before
+                    background: url('/images/team/platform/cup-highlighted.png')
+    &--check
+        &:before
+            background: url('/images/team/platform/check.png')
+        &.highlighted
+            &:not(.selected-token)
+                &:before
+                    background: url('/images/team/platform/check-highlighted.png')
+    &--search
+        &:before
+            background: url('/images/team/platform/search.png')
+        &.highlighted
+            &:not(.selected-token)
+                &:before
+                    background: url('/images/team/platform/search-highlighted.png')
+    &--promotion
+        &:before
+            background: url('/images/team/platform/promotion.png')
+        &.highlighted
+            &:not(.selected-token)
+                &:before
+                    background: url('/images/team/platform/promotion-highlighted.png')
+    &--merch
+        &:before
+            background: url('/images/team/platform/merch.png')
+        &.highlighted
+            &:not(.selected-token)
+                &:before
+                    background: url('/images/team/platform/merch-highlighted.png')
+    &--vote
+        &:before
+            background: url('/images/team/platform/vote.png')
+        &.highlighted
+            &:not(.selected-token)
+                &:before
+                    background: url('/images/team/platform/vote-highlighted.png')
+    &--bet
+        &:before
+            background: url('/images/team/platform/bet.png')
+        &.highlighted
+            &:not(.selected-token)
+                &:before
+                    background: url('/images/team/platform/bet-highlighted.png')
+
+
+// Coomon modules styles
+.module-name-block
+    padding-top: 50px
+    border-bottom: solid 10px rgba(black,.3)
+.ch-module-header
+    background: url(/images/charity/charity-header-bg.jpg) no-repeat bottom center
+    background-size: cover
+    +respond-to(phone)
+        text-align: center
+.module-big-icon
+    float: left
+    width: 85px
+    height: 85px
+    margin: -10px 20px 0 0
+    +respond-to(phone)
+        display: none
+
+// Charity page
+.ch-header-stars
+    display: inline-block
+    width: 80px
+    +respond-to(phone)
+        width: 50px
+    +respond-to(tablet)
+        width: 60px
+    &:hover
+        transform: scale(1.2)
+        cursor: pointer
+.ch-auction-card-header-stars
+    text-align: right
+    margin-top: -15px
+    +respond-to(phone)
+        text-align: center
+        margin-top: 15px
+.ch-auction-card-holder
+    border-bottom: solid 10px $border-color
+    position: relative
+.ch-auction-card-image
+    display: block
+    width: 100%
+    +respond-to(phone)
+        max-width: 100%
+        width: 400px
+        height: 400px
+        margin: 0 auto
+    +respond-to(smallPhone)
+        width: 280px
+        height: 280px
+.ch-auction-card-text-holder
+    padding: 30px 0 30px 30px
+    +respond-to(tablet)
+        padding: 30px 15px
+    +respond-to(phone)
+        padding-top: 15px
+.ch-auction-card-text-holder-inside
+    padding-top: 0
+.ch-auction-card-destination
+    background: rgba($border-color,.5)
+    padding: 10px 20px
+    border-radius: 10px
+    overflow: hidden
+    +respond-to(phone)
+        margin-top: 20px
+.ch-auction-card-destination-text
+    vertical-align: middle
+    display: inline-block
+    padding-left: 10px
+.ch-auction-card-destination-logo
+    vertical-align: middle
+    display: inline-block
+    width: 150px
+    height: 65px
+.ch-auction-card-details
+    padding-top: 9px
+    padding-bottom: 12px
+    border-top: solid 2px $border-color
+    border-bottom: solid 2px $border-color
+.ch-auction-card-lot-description
+    line-height: 1.4em
+    border-top: solid 5px $border-color
+.ch-auction-card-social-banner
+    display: inline-block
+    height: 70px
+    margin-right: auto
+    margin-left: auto
+    padding: 18px 20px 20px
+    border-radius: 50px
+    +respond-to(phone)
+        height: auto
+        border-radius: 10px
+.ch-auction-card-social-banner-image
+    vertical-align: middle
+    display: inline-block
+    height: 70px
+    margin: -28px 25px -20px 20px
+    +respond-to(phone)
+        display: none
+.ch-auction-card-social-banner-btns
+    vertical-align: top
+    display: inline-block
+    margin: -4px 20px 0 30px
+.ch-auction-card-other-auction
+    min-height: 93px
+    padding-top: 15px
+    padding-left: 100px
+    border-top: solid 2px $border-color
+    position: relative
+    +respond-to(tablet)
+        min-height: 68px
+        padding-left: 75px
+.ch-auction-card-other-auction-image
+    width: 85px
+    height: 85px
+    position: absolute
+    top: 10px
+    left: 0
+    +respond-to(tablet)
+        width: 60px
+        height: 60px
+.ch-auction-card-other-auctions-holder
+    padding-bottom: 30px
+.ch-auction-card-other-auction-text
+    transform: translateY(-50%)
+    position: relative
+    top: 34px
+    +respond-to(tablet)
+        top: 24px
+.other-auctions-holder-mobile
+    display: none
+    +respond-to(phone)
+        display: block
+.other-auctions-holder-desktop
+    +respond-to(phone)
+        display: none
+.bid-history-holder
+.bid-history-row
+    padding: 5px 0
+    border-top: solid 1px $border-color
+    overflow: hidden
+.bid-history-id
+    text-overflow: ellipsis
+    float: left
+    width: 55%
+    overflow: hidden
+.bid-history-time
+    float: left
+    width: 25%
+.bid-history-amount
+    float: left
+    width: 20%
+.bonus-popup-title
+    font-size: $big-title-size
+.fotorama__arr, .fotorama__fullscreen-icon, .fotorama__video-close, .fotorama__video-play
+    background: url(/images/charity/fotorama.png) no-repeat
+@media (-webkit-min-device-pixel-ratio:1.5),(min-resolution:2dppx)
+    .fotorama__arr, .fotorama__fullscreen-icon, .fotorama__video-close, .fotorama__video-play
+        background: url(/images/charity/fotorama@2x.png) 0 0/96px 160px no-repeat
+.fotorama__nav__frame
+    width: 30px
+    height: 35px
+.fotorama__dot
+    display: block
+    width: 20px
+    height: 20px
+    position: relative
+    top: 12px
+    left: 6px
+    border-radius: 25px
+    border: 3px solid #fff
+    background-color: grey
+.fotorama__nav__frame:focus .fotorama__dot:after
+    padding: 1px
+    top: -1px
+    left: -1px
+.fotorama__nav__frame.fotorama__active .fotorama__dot
+    background: #2962ff
+    width: 20px
+    height: 20px
+    border-width: 3px
+.fotorama__nav-wrap
+    position: absolute
+    bottom: 5px
+    left: 0
+    z-index: 5
+.fotorama__nav--dots .fotorama__nav__frame
+    width: 28px
+    height: 35px
+.fotorama__arr--next
+    background-position: -32px 0 !important
+.fotorama__fullscreen-icon
+    background-position: 0 -32px !important
+.fotorama--fullscreen .fotorama__fullscreen-icon
+    background-position: -32px -32px !important
+.fotorama__video-play
+    background-position: 0 -64px !important
+.fotorama__nav__frame .fotorama__video-play
+    background-position: -64px -32px !important
+.fotorama__video-close
+    background-position: -64px 0 !important
+
+
+
+// Christmas block
+.christmas-banner
+    color: white
+    display: block
+    background: url(/images/christmas/christmas-bg.jpg) no-repeat #272256
+    background-position: center bottom
+    background-size: cover
+    padding-bottom: 30px
+    position: relative
+    &:hover, &:active, &:focus
+        color: white
+    +respond-to(phone)
+        padding-bottom: 20px
+        position: fixed
+        bottom: 0
+        z-index: 5
+
+.christmas-banner-text
+    margin-top: 30px
+    padding-left: 100px
+    position: relative
+    &:before
+        content: ''
+        background: url(/images/christmas/charity-icon.png) center center no-repeat
+        background-size: cover
+        width: 75px
+        height: 75px
+        position: absolute
+        top: -5px
+        left: 0
+    +respond-to(phone)
+        padding-left: 60px
+        &:before
+            width: 50px
+            height: 50px
+            top: 0
+    @media only screen and (max-width: 374px)
+        padding-left: 0
+        &:before
+            content: none
+.christmas-banner-images
+    position: absolute
+    top: -20px
+    +respond-to(tablet)
+        margin-top: 50px
+        position: relative
+        top: 0
+    +respond-to(phone)
+        margin-top: 20px
+    > img
+        max-width: 20%
+        max-height: 100px
+        transition: all 0.2s ease-in-out
+        cursor: pointer
+        position: relative
+        z-index: 1
+        +respond-to(tablet)
+            max-height: 200px
+        &:nth-child(3)
+            transform: scale(1.4)
+            z-index: 3
+            &:hover
+                transform: scale(1.6)
+                z-index: 5
+        &:nth-child(2), &:nth-child(4)
+            transform: scale(1.2)
+            z-index: 2
+            &:hover
+                transform: scale(1.4)
+                z-index: 5
+        &:nth-child(1), &:nth-child(5)
+            &:hover
+                transform: scale(1.3)
+                z-index: 5
+.christmas-close
+    opacity: 0.75
+    position: absolute
+    top: -20px
+    right: 20px
+    z-index: 6
+
+
+//Popup
+
+.popup-container.j-promobonus-popup 
+    .btn-regular
+        font-size: $big-font-size
+        font-weight: bold
+        line-height: 44px
+        text-transform: uppercase
+        text-align: center
+        display: inline-block
+        height: 44px
+        border-radius: 5px
+        padding: 0 24px
+        border: none
+        outline: none
+        user-select: none
+        -webkit-appearance: none
+        transition: all 0.25s ease-in-out
+        &:focus, &:active, &:active:focus
+            outline: none
+    .btn-blue
+        box-shadow: none
+        color: #000 !important
+        background: #18cbc8
+        &:hover
+            background: #08a09e
+        &.btn-border
+            color: #000
+            background: none
+            border: solid 1px #000
+            &:hover
+                color: $link-hover-color
+    background-color: rgba(0, 0, 0, 0.5)
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.5))
+    display: none
+    width: 100%
+    height: 100%
+    overflow: auto
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 10
+    &.showing
+        display: block
+.popup-holder
+    background-color: white
+    margin: -600px auto 0
+    margin-top: 10%
+    &--default
+        max-width: 60%
+        padding: 60px
+        margin-top: 50px
+        position: relative
+        +respond-to(phone)
+            max-width: 100%
+            margin: 40px 20px
+            padding: 25px 30px 30px
+            border-radius: 10px
+    &--promo
+        color: black
+        max-width: 800px
+        padding: 50px 100px 50px
+        position: relative
+        border-radius: 5px
+        +respond-to(phone)
+            max-width: 100%
+            padding: 40px 20px 20px
+            margin: 20px
+.popup-hide-btn
+    background: white
+    padding: 12px
+    display: inline-block
+    width: 50px
+    height: 50px
+    position: absolute
+    top: 5px
+    right: 5px
+    z-index: 1
+    cursor: pointer
+    +respond-to(phone)
+        width: 20px
+        height: 20px
+        padding: 0
+    &:hover
+        img
+            opacity: 1
+    img
+        max-width: 100%
+        vertical-align: top
+        opacity: 0.5
+
+
+
+
+
+
+
+
+

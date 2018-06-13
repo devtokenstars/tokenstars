@@ -4,7 +4,7 @@
             $image_names = array_diff(scandir($_SERVER['DOCUMENT_ROOT'].'/images/resources/views/items/item_'.$item['item']->slug_name.'/images'),['.','..']);
         @endphp
         @foreach($image_names as $image_name)
-            <img src="{{asset("/images/resources/views/items/item_".$item['item']->slug_name."/images/".$image_name)}}" alt="" class="ch-auction-card-image-item">
+            <a href="{{asset("/images/resources/views/items/item_".$item['item']->slug_name."/images/".$image_name)}}" class="ch-auction-card-image-item"></a>
         @endforeach
         {{--<img src="/images/charity/lots/2.jpg" alt="" class="">
         <img src="/images/charity/lots/2.jpg" alt="" class="">--}}

@@ -49,7 +49,7 @@ $lang = app('translator')->getLocale()
                                          alt="" class="ch-auction-card-other-auction-image">
                                 </a>
                                 <div class="ch-auction-card-other-auction-text">
-                                    <a href="{{url("/$auction->slug_name")}}"
+                                    <a href="{{url("/charity/$auction->slug_name")}}"
                                        class="font-like-link big-font-size medium-font">{{$auction->title}}</a>
                                 </div>
                             </div>

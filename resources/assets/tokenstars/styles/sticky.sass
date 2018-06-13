@@ -1,0 +1,92 @@
+.sticky
+  width: 100%
+  min-height: 60px
+  position: fixed
+  background: url(/images/sticky/pole.jpg) no-repeat
+  background-size: cover
+  z-index: 1000
+  overflow: hidden
+  display: block
+  &--wrap
+    display: flex
+    align-items: center
+  &--wrap2
+    flex: 1
+    display: flex
+    justify-content: space-between
+    align-items: center
+    @media only screen and (max-width: 470px)
+      flex-direction: column
+  &--col-text
+    min-height: 60px
+    display: flex
+    align-items: center
+    margin: 5px 0
+    @media only screen and (max-width: 470px)
+      text-align: center
+      min-height: 0
+      margin: 0
+  &--col-img
+    height: 60px
+    @media only screen and (max-width: 991px)
+      display: none
+    img
+      display: block
+      height: 100%
+  &--col-btn
+    margin: 5px 0
+    padding: 0 10px
+    @media only screen and (max-width: 823px)
+      //padding-left: 10px
+  &--col-times
+    color: white
+    cursor: pointer
+    width: 30px
+    height: 30px
+    margin-left: 10px
+    font-size: 30px
+    position: relative
+    &:before
+      content: ""
+      position: absolute
+      top: 15px
+      left: 0
+      display: block
+      background: #000
+      width: 26px
+      height: 2px
+      border-radius: 3px
+      transform: rotateZ(45deg)
+    &:after
+      content: ""
+      position: absolute
+      top: 15px
+      left: 0
+      display: block
+      background: #000
+      width: 26px
+      height: 2px
+      border-radius: 3px
+      transform: rotateZ(-45deg)
+
+
+  &--title
+    font-size: 24px
+    margin-left: 5px
+    color: #000
+    @media only screen and (max-width: 823px)
+      font-size: 20px
+      margin-left: 0
+
+  &--btn
+    white-space: nowrap
+    @media only screen and (max-width: 823px)
+      font-size: 16px !important
+      padding: 0 20px !important
+      line-height: 40px !important
+      height: 40px !important
+    @media only screen and (max-width: 550px)
+      font-size: 14px !important
+      padding: 0 10px !important
+      line-height: 30px !important
+      height: 30px !important

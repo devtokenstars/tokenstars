@@ -7,7 +7,7 @@
     <div class="ch-auction-card-text-holder col-md-7">
         @include('items.card',[$item['item']])
         <div class="uppercase big-title-size bold-font big-margin-before">
-            <a href="{{url("/".$item['item']->slug_name)}}" class="font-like-link" onclick="ga('send', 'event', 'item', 'charity', '{{ $item['item']->title }}');">{{ $item['item']->title }}</a>
+            <a href="{{url("/charity/".$item['item']->slug_name)}}" class="font-like-link" onclick="ga('send', 'event', 'item', 'charity', '{{ $item['item']->title }}');">{{ $item['item']->title }}</a>
         </div>
         @include('items.item_'.$item['item']->slug_name.'.subtitle')
         <div class="ch-auction-card-details big-margin-before uppercase big-font-size medium-font">

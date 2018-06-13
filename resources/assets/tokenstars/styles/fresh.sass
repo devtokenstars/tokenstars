@@ -1,0 +1,1977 @@
+$fonts                 : 'Exo 2', Arial, Helvetica, sans-serif
+// Font colors
+$main-font-color       : black
+$alt-font-color        : white
+$sub-font-color        : #737373
+$link-color            : #005DB8
+$link-hover-color      : #0056AB
+$sub-link-color        : #FF5248
+$sub-link-hover-color  : #E14138
+$highlight-color       : #1DE9B6
+$highlight-hover-color : #00BFA5
+$violet-font-color     : #343580
+
+$blue-bg-color-lighter : #120B60
+$blue-bg-color-darker  : #060535
+
+$btn-blue-light         : #3D6BD1
+$btn-blue-dark          : #2845B8
+$btn-blue-dark-hover    : #243ea2
+
+$btn-violet-light       : #9A36B8
+$btn-violet-dark        : #311872
+$btn-violet-dark-hover  : #21104C
+
+// Bg colors
+$main-bg-color         : black
+$alt-bg-color          : white
+$sub-bg-color          : #F4F4F4
+$border-color          : rgba(#EBEBEB, .3)
+$dark-border-color     : rgba(#282A65,.2)
+$sub-border-color      : #6961a8
+
+// Font sizes
+$huge-title-size       : 40px
+$big-title-size        : 32px
+$title-size            : 28px
+$sub-title-size        : 24px
+$big-font-size         : 18px
+$body-font-size        : 16px
+$small-font-size       : 14px
+$super-small-font-size : 12px
+
+
+// FIX FOR BOOTSTRAP
+p, ol, ul
+    margin-top: unset
+    margin-bottom: unset
+    padding: unset
+img
+    vertical-align: unset
+hr
+    margin: 0
+h1, h2, h3, h4, h5, h6
+    font-size: inherit
+    font-weight: unset
+    margin: 0
+.row-eq-height
+    display: flex
+    flex-wrap: wrap
+
+
+
+// Media querys
+=respond-to($media)
+    @if $media == retina
+        @media only screen and (-webkit-min-device-pixel-ratio: 2)
+            @content
+    @else if $media == smallPhone
+        @media only screen and (max-width: 575px)
+            @content
+    @else if $media == phone
+        @media only screen and (max-width: 767px)
+            @content
+    @else if $media == tablet
+        @media only screen and (max-width: 991px)
+            @content
+    @else if $media == desktop
+        @media only screen and (max-width: 1199px)
+            @content
+    @else if $media == tablet_up
+        @media only screen and (min-width: 991px)
+            @content
+
+
+// Common styles
+*, *:before, *:after
+    box-sizing: border-box
+body, html
+    font-family: $fonts
+    font-size: $body-font-size
+    line-height: 1.3
+    color: $main-font-color
+    background: white
+    -webkit-text-size-adjust: 100%
+    -webkit-font-smoothing: antialiased
+.wrap
+    max-width: 1200px
+    padding: 0 40px
+    margin: 0 auto
+    position: relative
+    +respond-to(phone)
+        padding: 0 20px
+.align-left
+    text-align: left
+.align-center
+    text-align: center
+.align-right
+    text-align: right
+.hide
+    display: none !important
+.relative
+    position: relative
+.desktop-only
+    display: block
+    +respond-to(phone)
+        display: none
+.phone-only
+    display: none
+    +respond-to(phone)
+        display: block
+
+
+// Font styles
+a, .fake-link
+    text-decoration: none !important
+    color: $link-color
+    cursor: pointer
+    &:hover
+        color: $link-hover-color
+.uppercase
+    text-transform: uppercase
+.sub-font-color
+    color: $sub-font-color
+.sub-link-color
+    color: $sub-link-color
+.highlight-font-color
+    color: $highlight-color
+.bold-font, b
+    font-weight: bold
+.huge-margin-before
+    margin-top: 30px
+    +respond-to(tablet)
+        margin-top: 20px
+.big-margin-before
+    margin-top: 15px
+    +respond-to(tablet)
+        margin-top: 10px
+.medium-margin-before
+    margin-top: 10px
+.small-margin-before
+    margin-top: 5px
+.medium-margin-right
+    margin-right: 10px
+.small-margin-right
+    margin-right: 5px
+.huge-title-font-size
+    font-size: $huge-title-size
+    +respond-to(phone)
+        font-size: $big-title-size
+.big-title-font-size
+    font-size: $big-title-size
+.title-font-size
+    font-size: $title-size
+.sub-title-font-size
+    font-size: $sub-title-size
+    +respond-to(tablet)
+        font-size: $big-font-size
+.big-font-size
+    font-size: $big-font-size
+.small-font-size
+    font-size: $small-font-size
+.super-small-font-size
+    font-size: $super-small-font-size
+.mobile-huge-title-font-size
+    font-size: $huge-title-size
+    +respond-to(phone)
+        font-size: $sub-title-size
+
+//Imports
+@import "sticky"
+
+// Buttons
+.btn-small
+    font-size: $small-font-size
+    font-weight: bold
+    line-height: 36px
+    text-transform: uppercase
+    text-align: center
+    display: inline-block
+    height: 36px
+    border-radius: 5px
+    padding: 0 15px
+    border: none
+    outline: none
+    user-select: none
+    -webkit-appearance: none
+    transition: all 0.25s ease-in-out
+    &:focus, &:active, &:active:focus
+        outline: none
+.btn-regular
+    font-size: $big-font-size
+    font-weight: bold
+    line-height: 44px
+    text-transform: uppercase
+    text-align: center
+    display: inline-block
+    height: 44px
+    border-radius: 5px
+    padding: 0 24px
+    border: none
+    outline: none
+    user-select: none
+    -webkit-appearance: none
+    transition: all 0.25s ease-in-out
+    @media screen and (max-width: 320px)
+        font-size: 15px
+    &:focus, &:active, &:active:focus
+        outline: none
+.btn-big
+    font-size: $sub-title-size
+    font-weight: bold
+    line-height: 50px
+    text-transform: uppercase
+    text-align: center
+    display: inline-block
+    height: 50px
+    border-radius: 5px
+    padding: 0 24px
+    border: none
+    outline: none
+    user-select: none
+    -webkit-appearance: none
+    transition: all 0.25s ease-in-out
+    @media screen and (max-width: 320px)
+        font-size: 20px
+    &:focus, &:active, &:active:focus
+        outline: none
+.btn-blue
+    color: $alt-font-color
+    background: linear-gradient(to bottom, $btn-blue-light, $btn-blue-dark)
+    &:focus, &:active, &:active:focus, &:visited
+      outline: none
+      color: $alt-font-color
+    &:hover
+        color: $alt-font-color
+        background: linear-gradient(to bottom, $btn-blue-dark, $btn-blue-dark-hover)
+    &.btn-border
+        color: $btn-blue-dark
+        background: none
+        border: solid 1px $btn-blue-dark
+        &:hover
+            color: $btn-blue-dark-hover
+.btn-violet
+    color: $alt-font-color
+    background: linear-gradient(to bottom, $btn-violet-light, $btn-violet-dark)
+    &:focus, &:active, &:active:focus, &:visited
+      outline: none
+      color: $alt-font-color
+    &:hover
+        color: $alt-font-color
+        background: linear-gradient(to bottom, $btn-violet-dark, $btn-violet-dark-hover)
+.btn-red
+    color: $main-font-color
+    background: $sub-link-color
+    &:focus, &:active, &:active:focus, &:visited
+      outline: none
+      color: $main-font-color
+    &:hover
+        color: $main-font-color
+        background: $sub-link-hover-color
+
+
+// Header styles
+.header
+    background: rgba($main-bg-color, 0.5)
+    width: 100%
+    height: 60px
+    position: fixed
+    z-index: 10
+    +respond-to(tablet)
+        background: rgba($main-bg-color, 0.8)
+.header-clear
+    height: 60px
+.header-logo
+    display: inline-block
+    height: 60px
+.header-logo__image
+    height: 20px
+    margin-right: 10px
+    margin-left: 3px
+    position: relative
+    top: 50%
+    transform: translateY(-50%)
+    vertical-align: middle
+    cursor: pointer
+    opacity: .8
+    transition: all 0.25s ease-in-out
+    &:hover
+        opacity: 1
+    &:last-child
+        margin-right: 0
+    +respond-to(tablet)
+        height: 15px
+        vertical-align: unset
+.header-logo__label
+    font-size: $sub-title-size
+    line-height: 1.3em
+    display: inline-block
+    padding: 10px 15px 10px
+    margin-left: 5px
+    position: relative
+    top: 50%
+    transform: translateY(-50%)
+    opacity: 0.6
+    border-left: 1px solid rgba(white, .4)
+    box-shadow: -1px 0 0 rgba(black, .6)
+    vertical-align: top
+    +respond-to(tablet)
+        border: none
+        box-shadow: none
+        margin-left: 0
+        padding-left: 0
+    +respond-to(phone)
+        font-size: $big-font-size
+        padding: 10px 0 0
+        top: unset
+        transform: none
+.header-nav
+    float: right
+    +respond-to(tablet)
+        width: 100%
+        height: 0
+        overflow: hidden
+        &.opened
+            background: rgba($main-bg-color, .8)
+            height: calc(100vh - 60px)
+            position: absolute
+            top: 60px
+            left: 0
+            overflow-y: scroll
+            .header-nav__listitem
+                font-size: $big-font-size
+                text-align: left
+                display: block
+                margin: 15px 0
+                padding: 0px 25px 10px
+                border-bottom: solid 1px $border-color
+.header-nav__list
+    list-style: none
+    position: relative
+.header-nav__listitem
+    display: inline-block
+    padding: 0 10px
+    margin-top: 20px
+    vertical-align: middle
+    &:lang(ja)
+        font-size: $super-small-font-size
+    > a
+        color: $alt-font-color
+    +respond-to(tablet_up)
+        &--bottom
+            background: $main-bg-color
+            padding: 3px 20px 10px
+            position: absolute
+            top: 45px
+            right: 0
+            border-bottom-left-radius: 5px
+            border-bottom-right-radius: 5px
+    +respond-to(tablet)
+        text-align: center
+        width: 100%
+.header-nav__telegram
+    height: 26px
+    position: relative
+    top: 3px
+.header-nav__mob-menu
+    display: none
+    +respond-to(tablet)
+        display: block
+        width: 26px
+        height: 60px
+        margin-top: 17px
+        border-radius: 8px
+        float: right
+        > span
+            background: grey
+            margin-top: 5px
+            display: block
+            width: 26px
+            height: 2px
+            border-radius: 3px
+            position: relative
+            -webkit-transform: rotate(0)
+            transform: rotate(0)
+            -webkit-transition: all .2s ease-in-out
+            transition: all .2s ease-in-out
+
+
+// Common sections
+.section
+    padding: 40px 0
+    +respond-to(smallPhone)
+        padding: 25px 0
+.section-small-padding
+    padding: 20px 0
+.section-sub-bg-color
+    background: $sub-bg-color
+.section-title
+    font-size: $big-title-size
+    font-weight: 700
+    text-transform: uppercase
+    text-align: center
+.section-subtitle
+    font-size: $sub-title-size
+    font-weight: 700
+    text-transform: uppercase
+    text-align: center
+
+
+// Main section
+.main-section
+    color: $alt-font-color
+    //background: url('/images/fresh/main-bg.jpg') no-repeat 50% 50% / cover
+    background: #0a1329
+    padding-top: 180px
+    padding-bottom: 120px
+    max-height: 1050px
+    position: relative
+    width: 100%
+    z-index: 1
+    overflow: hidden
+    .wrap
+        z-index: 10
+    +respond-to(tablet)
+        padding: 80px 0
+        padding-top: 130px
+    +respond-to(phone)
+        text-align: center
+        padding: 60px 0
+        padding-top: 140px
+    +respond-to(smallPhone)
+        overflow: visible
+        height: auto
+        max-height: 1140px
+
+    @media only screen and (max-width: 320px)
+        max-height: 1260px
+        padding-top: 160px
+
+.main-gradient
+    background: linear-gradient(rgba(0,0,0,.5), transparent, rgba(0,0,0,.3))
+    width: 100%
+    height: 100%
+    position: absolute
+    left: 0
+    top: 0
+    z-index: 3
+
+.main-video
+    text-align: center
+    width: 200%
+    height: 200%
+    position: absolute
+    left: -100%
+    top: -100%
+    overflow: hidden
+    > video
+        display: inline-block
+        height: 50%
+        position: relative
+        left: 25%
+        top: 50%
+        z-index: 1
+    @media only screen and (min-width: 1200px)
+        > video
+            height: 60%
+            top: 40%
+.main-video-background
+    background: radial-gradient($blue-bg-color-lighter, $blue-bg-color-darker)
+    width: 100%
+    height: 100%
+    position: absolute
+    left: 0
+    top: 0
+    z-index: 2
+    opacity: 0.5
+
+.main-title
+    font-size: 50px
+    font-weight: 700
+    text-transform: uppercase
+    padding-top: 10px
+    sup
+        top: -.3em
+    +respond-to(phone)
+        font-size: 35px
+.main-point
+    padding: 5px 15px
+    border-left: solid 2px $link-color
+.main-bullet
+    list-style-type: none
+    position: relative
+    &:before
+        content: "•"
+        font-size: $title-size
+        color: $link-color
+        position: absolute
+        top: -7px
+        left: -15px
+    & + &
+        margin-top: 10px
+.main-bullit-header
+    padding-left: 60px
+    position: relative
+    +respond-to(phone)
+        font-weight: bold
+        padding-left: 45px
+.main-bullit-icon
+    width: 45px
+    height: 45px
+    position: absolute
+    top: 5px
+    left: 0
+    +respond-to(phone)
+        width: 32px
+        height: 32px
+        margin-top: -16px
+        top: 50%
+.main-reviews
+    margin-top: 20px
+    > img
+        max-width: 130px
+        margin-right: 5px
+        transition: all 0.25s ease-in-out
+        +respond-to(phone)
+            width: 105px
+            margin: 0
+            &:first-child
+                margin-left: 5px
+        &:hover
+            box-shadow: 0 0 15px 0 rgba($link-color,.8)
+        &:first-child
+            margin-left: 0
+.main-form
+    background: #282937
+    padding: 30px
+    border-radius: 5px
+    box-shadow: 0 0 10px rgba(black,.4)
+    +respond-to(tablet)
+        margin-top: 25px
+        padding: 20px 30px
+.main-form-splitter
+    background: $border-color
+    height: 1px
+.main-form-progress
+    background: $sub-bg-color
+    height: 20px
+    margin: 40px 0 20px
+    border-radius: 25px
+    position: relative
+.main-form-progress-inside
+    background: $link-color
+    width: 70%
+    border-top-left-radius: 25px
+    border-bottom-left-radius: 25px
+    position: absolute
+    top: 0
+    left: 0
+    bottom: 0
+    transition: all 1.2s ease-in-out
+    transition-delay: 1s
+    &.short
+        width: 0
+.main-form-progress-label
+    width: 100px
+    position: absolute
+    top: -20px
+    left: -30px
+    &:before
+        content: ""
+        background: $main-font-color
+        height: 20px
+        width: 3px
+        position: absolute
+        top: 20px
+        left: 50%
+.main-form-progress-softcap
+    width: 100px
+    position: absolute
+    bottom: -23px
+    left: -30px
+
+.main-exchange
+    color: $main-font-color
+    background: white
+    display: inline-block
+    margin-top: 30px
+    padding: 20px
+    border-radius: 10px
+.main-exchange__label
+    color: $sub-font-color
+.main-exchange__title
+    font-size: $sub-title-size
+.exchanges_logo
+    display: flex
+    justify-content: space-around
+    align-items: center
+    padding: 0 15%
+    padding-top: 15px
+
+.main-widget
+    color: $main-font-color
+    text-align: center
+    background: rgba(white, .7)
+    padding: 30px
+    border-radius: 5px
+    +respond-to(tablet)
+        margin-top: 20px
+        padding: 15px 15px 30px
+.main-widget__title
+    font-size: $big-title-size
+    font-weight: 700
+    text-transform: uppercase
+    & + .main-widget__subtitle
+        margin-top: 10px
+    +respond-to(phone)
+        font-size: $sub-title-size
+.main-widget__subtitle
+    font-size: $sub-title-size
+    text-transform: uppercase
+    +respond-to(phone)
+        font-size: $body-font-size
+.main-widget__exchanges
+    margin-top: 20px
+    max-width: 300px
+    @media only screen and (max-width: 320px)
+        max-width: 240px
+.main-widget__arrow
+    max-width: 80%
+    display: inline-block
+    align-self: center
+    justify-self: center
+    margin-top: 27px
+    +respond-to(tablet)
+    +respond-to(phone)
+      transform: rotateZ(90deg)
+      max-height: 30px
+    @media only screen and (max-width: 1200px) and (min-width: 992px)
+      transform: rotateZ(90deg)
+      max-width: 12%
+.arrow_get_crypto
+      transform: rotate(180deg)
+      @media only screen and (max-width: 1200px) and (min-width: 992px)
+          transform: rotateZ(-90deg)
+      +respond-to(phone)
+          transform: rotateZ(-90deg)
+
+.arrow_get_tokens
+    transform: rotate(360deg)
+    @media only screen and (max-width: 1200px) and (min-width: 992px)
+        transform: rotateZ(90deg)
+    +respond-to(phone)
+        transform: rotateZ(90deg)
+
+.main-widget__inputs
+    display: grid
+    grid-template-columns: 55% auto 35%
+    justify-content: space-between
+    margin-top: 20px
+    @media only screen and (max-width: 1200px) and (min-width: 992px)
+        grid-template-columns: 100%
+        grid-row-gap: 10px
+        justify-items: center
+    +respond-to(phone)
+        grid-template-columns: 100%
+        grid-row-gap: 10px
+        justify-items: center
+.main-widget__input-holder
+    text-align: left
+    @media screen and (max-width: 320px)
+        width: 100%
+    label
+        color: $sub-font-color
+        display: block
+        padding-left: 10px
+        margin-bottom: 5px
+.main-widget__select
+    @media screen and (max-width: 320px)
+        width: 100%
+        margin-bottom: 15px
+    position: relative
+    margin-right: 5px
+    > select
+        font-size: 22px
+        display: inline-block
+        height: 64px
+        border: none
+        background: white
+        outline: none
+        cursor: pointer
+        border-radius: 5px
+        -webkit-appearance: none
+        padding-left: 10px
+        padding-right: 40px
+        top: 0
+        right: 0
+        z-index: 5
+        +respond-to(phone)
+            height: 50px
+        @media screen and (max-width: 320px)
+            width: 100%
+    &:after
+        content: '▾'
+        font-size: 30px
+        line-height: 64px
+        position: absolute
+        top: 23px
+        right: 15px
+        pointer-events: none
+        +respond-to(phone)
+            line-height: 50px
+.main-widget__flex
+    display: flex
+    width: 100%
+    align-items: flex-end
+    @media only screen and (max-width: 320px)
+        flex-direction: column
+        align-items: center
+
+        
+.main-widget__input
+    background: white
+    display: inline-block
+    width: 200px
+    border-radius: 5px
+    overflow: hidden
+    position: relative
+    flex: 1
+    padding: 17px 90px 17px 20px
+    @media only screen and (max-width: 320px)
+        width: 100%
+    &:after
+        content: '▾'
+        font-size: 30px
+        line-height: 64px
+        position: absolute
+        top: 0
+        right: 10px
+        +respond-to(phone)
+            line-height: 50px
+    > input
+        font-size: 22px
+        display: inline-block
+        width: 100%
+        max-width: 100%
+        padding: 0
+        margin: 0
+        background: white
+        outline: none
+        border: 1px solid $sub-border-color
+        &:after
+            position: absolute
+            width: 100px
+            height: 100px
+            background-color: red
+    > select
+        font-size: 22px
+        display: inline-block
+        height: 64px
+        padding-right: 35px
+        border: none
+        background: none
+        outline: none
+        -webkit-appearance: none
+        cursor: pointer
+        position: absolute
+        top: 0
+        right: 0
+        z-index: 5
+        +respond-to(phone)
+            height: 50px
+    > select.left
+        left: 15px
+    > span
+        font-size: 30px
+        line-height: 64px
+        position: absolute
+        top: 0
+        width: 30px
+        left: 80px
+    +respond-to(phone)
+        padding: 12px 90px 12px 15px
+        > input
+            font-size: 20px
+            //padding: 12px 15px
+            max-width: 200px
+        > select
+            font-size: 20px
+.main-widget__input__right
+    background: white
+    display: inline-block
+    width: 100%
+    border-radius: 5px
+    overflow: hidden
+    position: relative
+    padding: 17px 90px 17px 20px
+    > input
+        font-size: 22px
+        display: block
+        width: 100%
+        max-width: 100%
+        padding: 0
+        margin: 0
+        border: none
+        background: #fff
+        outline: 0
+    > select
+        font-size: 22px
+        display: inline-block
+        height: 64px
+        padding-right: 35px
+        border: none
+        background: none
+        outline: none
+        -webkit-appearance: none
+        cursor: pointer
+        position: absolute
+        top: 0
+        right: 0
+        z-index: 5
+        +respond-to(phone)
+            height: 50px
+    >span
+        position: absolute
+        right: 15px
+        top: 18px
+        font-size: 22px
+        @media screen and (max-width: 320px)
+            top: 13px
+    +respond-to(phone)
+        padding: 12px 90px 12px 15px
+        > input
+            font-size: 20px
+            max-width: 200px
+        > select
+            font-size: 20px
+.main-widget__footer
+    background: rgba(black, .1)
+    margin: 20px -30px -30px
+    padding: 20px 30px
+    display: grid
+    grid-template-columns: 25% auto 25%
+    grid-column-gap: 15px
+    +respond-to(phone)
+        grid-template-columns: 100%
+        grid-row-gap: 10px
+    > p
+        text-align: left
+        place-self: center
+    > img
+        max-width: 100%
+        place-self: center
+        +respond-to(phone)
+            max-width: 200px
+.main-widget__input-activable
+    &.active
+        //background: $highlight-color
+        border: none
+.main-scroll
+    font-size: $big-font-size
+    color: rgba(white, .5)
+    position: absolute
+    bottom: 30px
+    left: 50%
+    z-index: 5
+    transform: translateX(-50%)
+    animation-name: main-scroll
+    animation-timing-function: ease-in-out
+    animation-duration: 2s
+    animation-iteration-count: infinite
+    &:after
+        content: '▼'
+        font-size: 20px
+        position: absolute
+        bottom: -20px
+        left: 50%
+        transform: translateX(-50%)
+    +respond-to(phone)
+        display: none
+
+@keyframes main-scroll
+    0%
+        bottom: 30px
+    50%
+        bottom: 50px
+    100%
+        bottom: 30px
+
+
+// Review section
+.review-banner
+    display: inline-block
+    width: 170px
+    margin: 0 5px
+    border-radius: 15px
+    transition: all 0.25s ease-in-out
+    +respond-to(phone)
+        width: 105px
+        margin: 0
+        &:first-child
+            margin-left: 5px
+    &:hover
+        box-shadow: 0 0 15px 0 rgba($link-color,.8)
+    &:first-child
+        margin-left: 0
+
+
+// Quote section
+.quote-section
+    font-size: $huge-title-size
+    color: $alt-font-color
+    background: url('/images/landing-stars/quote-bg.png') no-repeat center / contain $alt-bg-color
+    +respond-to(tablet)
+        font-size: $title-size
+
+
+// Market section
+.market-section
+    background: $link-color
+    position: relative
+    &:after
+        content: ''
+        background: url('/images/landing-stars/market-bg.png') no-repeat center / cover $sub-link-color
+        display: block
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        left: 50%
+        z-index: 0
+    .row
+        position: relative
+        z-index: 5
+.market-number
+    font-size: 80px
+    transform: translate3d(0, 0, 0)
+    transition: all 0.25s ease-in-out
+    +respond-to(tablet)
+        font-size: 44px
+    &:hover
+        transform: scale(1.2) translate3d(0, 0, 0)
+
+
+// Usage section
+.usage-section
+    font-size: $title-size
+    text-align: center
+    background: url('/images/landing-stars/usage-bg.jpg') no-repeat center bottom / cover
+    +respond-to(tablet)
+        font-size: $sub-title-size
+        text-align: left
+    p
+        font-size: $body-font-size
+        +respond-to(tablet)
+            font-size: $small-font-size
+.usage-item
+    padding-top: 10px
+    position: relative
+    +respond-to(phone)
+        padding-left: 75px
+.usage-icon
+    width: 40px
+    +respond-to(phone)
+        position: absolute
+        top: 0px
+        left: 20px
+
+
+
+// Clients section
+.clients-logos
+    max-width: 100%
+    +respond-to(phone)
+        height: 10%
+.clients-splitter
+    margin-top: 50px
+    padding-top: 50px
+    border-top: solid 1px $border-color
+    +respond-to(tablet)
+        margin-top: 25px
+        padding-top: 25px
+
+
+// Team section
+.team-section
+    color: $main-font-color
+    background: #FAFAFA
+    position: relative
+.team-ambassador-card
+    text-align: center
+    background: $alt-bg-color
+    margin-top: 25px
+    padding: 10px 20px
+    box-shadow: 0 0 5px rgba(black,.2)
+    position: relative
+    overflow: hidden
+    +respond-to(tablet)
+        text-align: left
+        margin-top: 20px
+        padding: 10px
+    &:hover
+        .team-ambassador-card-info
+            top: 0
+.team-ambassador-job
+    font-size: $super-small-font-size
+    display: flex
+    align-items: flex-end
+    justify-content: center
+    min-height: 30px
+    +respond-to(phone)
+        justify-content: flex-start
+    &:lang(ru)
+        min-height: 45px
+    &.small
+        min-height: 0
+        &:lang(ru)
+            min-height: 30px
+.team-small-ambassador-card
+    font-size: $big-font-size
+    vertical-align: top
+    text-align: center
+    display: inline-block
+    padding: 15px 25px 0
+    +respond-to(phone)
+        font-size: $body-font-size
+        width: 50%
+        margin: 10px -3px 0
+        padding: 0
+
+.team-ambassador-card-image
+    width: 120px
+    +respond-to(tablet)
+        float: left
+        width: 90px
+        margin-right: 10px
+.team-small-ambassador-card-image
+    width: 80px
+    +respond-to(phone)
+        width: 60px
+.team-ambassador-card-flag
+    width: 25px
+    +respond-to(tablet)
+        width: 20px
+.team-ambassador-card-info
+    line-height: 1.6
+    text-align: left
+    background: $alt-bg-color
+    padding: 10px 20px
+    position: absolute
+    top: 100%
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 5
+    transition: all 0.25s ease-in-out
+    +respond-to(tablet)
+        position: relative
+        top: 0
+.team-splitter
+    margin-top: 35px
+    padding-top: 30px
+    border-top: solid 1px $dark-border-color
+    +respond-to(phone)
+        margin-top: 25px
+        padding-top: 20px
+.rico-images
+    max-width: 100%
+.team-card
+    background: transparent
+    padding: 0
+    box-shadow: none
+    +respond-to(tablet)
+        text-align: center
+    +respond-to(phone)
+        text-align: left
+    .team-ambassador-card-image
+        border-radius: 120px
+        +respond-to(tablet)
+            float: none
+        +respond-to(phone)
+            float: left
+.team-social
+    opacity: .6
+    &:hover
+        opacity: 1
+
+
+
+// How section
+.how-sub-section
+    background: $sub-link-color
+    position: relative
+    .wrap:before
+        content: ""
+        width: 0
+        height: 0
+        border-style: solid
+        border-width: 0 30px 25px 30px
+        border-color: transparent transparent #ff5148 transparent
+        position: absolute
+        top: -55px
+        left: 11%
+        +respond-to(phone)
+            display: none
+.how-item
+    +respond-to(phone)
+        text-align: left
+        margin-top: 10px
+        padding-left: 75px
+        position: relative
+.how-sub-task
+    padding-left: 35px
+    position: relative
+    +respond-to(tablet)
+        margin-top: 5px
+    &:before
+        content: "✓"
+        font-size: $title-size
+        position: absolute
+        top: -5px
+        left: 0
+.how-scheme-section
+    background: $alt-bg-color
+.how-scheme
+    width: 100%
+.how-fb-scheme
+    width: 70%
+    +respond-to(phone)
+        width: 100%
+.how-number
+    font-size: $title-size
+    line-height: 44px
+    text-align: center
+    width: 50px
+    height: 50px
+    margin: 0 auto
+    border: solid 3px $alt-bg-color
+    border-radius: 50px
+    +respond-to(phone)
+        font-size: $big-font-size
+        line-height: 32px
+        width: 36px
+        height: 36px
+        border-width: 2px
+        position: absolute
+        top: 0
+        left: 20px
+
+
+// Press
+.press-section
+    color: $main-font-color
+.press-subtitle
+    font-size: $sub-title-size
+    font-weight: 700
+    color: $link-color
+    text-decoration: underline
+    text-transform: uppercase
+    text-align: center
+    margin-right: 30px
+    cursor: pointer
+    &:last-child
+        margin-right: 0
+    &.active
+        color: $main-font-color
+        text-decoration: none
+        cursor: default
+.lSSlideOuter
+    position: relative
+    z-index: 1
+.press-card
+    background: $alt-bg-color
+    margin: 30px 5px 5px
+    padding: 20px
+    border-radius: 5px
+    border: solid 2px $dark-border-color
+    &:lang(ru)
+        min-height: 290px
+    +respond-to(tablet)
+        min-height: 0
+.press-logos-holder
+    margin: -100px 15px 0
+    padding: 110px 15px 10px
+    border-bottom-left-radius: 10px
+    border-bottom-right-radius: 10px
+    +respond-to(smallPhone)
+        margin-right: -20px
+        margin-left: -20px
+    .row
+        line-height: 70px
+    img
+        vertical-align: middle
+        max-width: 100%
+        max-height: 60px
+        transition: all 0.1s ease-in-out
+        &:hover
+            transform: scale(1.1)
+.press-logos
+    width: 100%
+.press-logo
+    display: block
+    height: 45px
+    margin: 0 auto 15px
+
+
+// Events
+.events-section
+    background: url('/images/landing-stars/events-bg.jpg') no-repeat center / cover
+.events-holder
+    padding: 0 10px
+    border-radius: 10px
+    +respond-to(phone)
+        padding: 0 20px
+.event-section
+    padding: 30px 10px 20px
+    border-right: 2px solid $border-color
+    +respond-to(phone)
+        padding: 20px 10px
+        border-right: none
+        border-bottom: 2px solid $border-color
+    &:last-child
+        border-right: none
+        border-bottom: none
+    a
+        display: inline-block
+        margin-top: 15px
+        +respond-to(phone)
+            margin-top: 10px
+.event-logo
+    max-width: 100%
+    max-height: 75px
+    transition: all .1s ease-in-out
+    &:hover
+        transform: scale(1.1)
+
+
+// Footer TO FIX
+.section-footer
+    background: $alt-bg-color
+    border-top: 5px solid #f4f4f4
+.footer-social-link
+    display: inline-block
+    border-radius: 50px
+    vertical-align: middle
+    border: 5px solid white
+    padding: 10px
+    text-align: center
+    opacity: 0.5
+    img
+        max-height: 35px
+        max-width: 35px
+        +respond-to(phone)
+            max-height: 25px
+            max-width: 25px
+    &:hover
+        opacity: 1
+.footer-nav
+    a
+        margin-right: 20px
+.footer-terms
+    margin-right: 20px
+    &:last-child
+        margin-right: 0
+
+
+// Streaming Market
+.streaming-section
+    max-height: 750px
+    overflow: hidden
+    position: relative
+    z-index: 0
+    +respond-to(phone)
+        margin: 0 -25px -25px
+.streaming-image
+    max-width: 1120px
+    position: relative
+    top: -300px
+    left: 50%
+    z-index: -1
+    transform: translateX(-50%)
+    +respond-to(tablet)
+        max-width: 800px
+        top: -150px
+.streaming-image-mobile
+    max-width: 100%
+
+
+// Advertising
+.advertising-section
+    font-size: $small-font-size
+    background-color: #001616
+    background: url(/images/landing-stars/brand-bg.jpg) no-repeat 50% 50%/cover
+.advertising-circle
+    font-size: $sub-title-size
+    text-align: center
+    line-height: 38px
+    display: inline-block
+    width: 40px
+    height: 40px
+    margin-top: 25px
+    margin-right: 30px
+    border: solid 1px #fff
+    border-radius: 50px
+    +respond-to(tablet)
+        margin-top: 0
+        position: absolute
+        top: 0
+        left: 10px
+.advertising-line
+    width: calc(100% - 80px)
+    vertical-align: middle
+    +respond-to(tablet)
+        display: none
+.advertising-item
+    +respond-to(tablet)
+        margin-top: 25px
+        padding-left: 60px
+        position: relative
+
+// Promo Bonus
+.promo-bonus-step
+    display: none
+    &.showing
+        display: block
+.promo-bonus-title
+    font-size: $big-title-size
+    +respond-to(phone)
+        font-size: $title-size
+.crowdsale-telegram-btn
+    color: white
+    background: #179CDE
+    &:hover
+        color: white
+        background: #148DCA
+    > img
+        display: inline-block
+        height: 50px
+        vertical-align: top
+
+// Workflow
+.workflow-section
+    background-color: #001616
+    background: url(/images/landing-stars/brand-bg.jpg) no-repeat 50% 50%/cover
+.workflow-box
+    background: linear-gradient(to top, #192020, #282937)
+    margin-top: 40px
+    padding: 30px
+    border: 1px solid #585858
+    border-radius: 5px
+.workflow-item
+    +respond-to(phone)
+        margin-top: 15px
+.workflow-line
+    position: absolute
+    top: 35px
+    right: -50px
+    +respond-to(phone)
+        top: 0
+        left: 0
+        right: 0
+    &:after
+        +respond-to(tablet)
+            content: '→'
+            font-size: 20px
+            position: absolute
+            top: -10px
+            right: 0
+            left: -100px
+        +respond-to(phone)
+            content: '↓'
+            top: 95px
+            left: 0
+    > img
+        display: block
+        width: 100px
+        +respond-to(tablet)
+            display: none
+        &:nth-child(2)
+            margin-top: 5px
+            transform: scale(-1)
+.workflow-line-back
+    &:before
+        +respond-to(tablet)
+            content: '←'
+            font-size: 20px
+            position: absolute
+            top: -20px
+            right: 0
+            left: -100px
+        +respond-to(phone)
+            content: '↑'
+            top: 95px
+            left: 20px
+.workflow-icon
+    margin-top: 20px
+.workflow-bar
+    background: linear-gradient(to right, $link-color 0%, $highlight-color 70%)
+    width: 100%
+    height: 30px
+    margin: 50px auto 40px
+    border-radius: 10px
+    position: relative
+    +respond-to(phone)
+        margin: 30px auto 60px
+    > span
+        content: ''
+        background: $sub-link-color
+        position: absolute
+        width: 29%
+        height: 30px
+        top: 0
+        left: 68%
+        &:nth-child(2)
+            background: #dde85a
+            width: 4.01%
+            left: 96.1%
+            border-radius: 0 10px 10px 0
+    &:before
+        content: '70%'
+        font-size: $sub-title-size
+        position: absolute
+        bottom: -35px
+        right: 30%
+    &:after
+        content: '5%'
+        font-size: $sub-title-size
+        position: absolute
+        bottom: -35px
+        right: 1%
+.workflow-bar-bullet
+    list-style-type: none
+    margin-top: 20px
+    padding-left: 30px
+    position: relative
+    &:before
+        content: "•"
+        font-size: 60px
+        color: $link-color
+        position: absolute
+        top: -28px
+        left: 0
+    &.red
+        &:before
+            color: $sub-link-color
+    &.dark-red
+        &:before
+            color: #dde85a
+    & + &
+        margin-top: 10px
+
+
+// Main links
+.main-link-row
+    margin-top: -20px
+    > *
+        @media screen and (max-width: 320px)
+            width: 100%
+
+
+.main-link
+    display: table
+    width: 100%
+    min-height: 120px
+    padding 30px
+    margin-top: 20px
+    background: radial-gradient($blue-bg-color-lighter, $blue-bg-color-darker)
+    background-position: center
+    background-size: 130%
+    padding: 20px
+    border-radius: 10px
+    position: relative
+    overflow: hidden
+    transition: all 0.2s ease
+    cursor: pointer
+    z-index: 0
+    border: 1px solid transparent
+    &:before
+        content: ''
+        background: url(/images/fresh/main-link-bg.png)
+        background-position: center
+        background-size: 130%
+        width: 130%
+        height: 130%
+        position: absolute
+        top: 50%
+        left: 50%
+        z-index: -1
+        transform: translate(-50%, -50%)
+        transition: all 0.5s ease
+    &.main-link--2
+        &:before
+            transform: translate(-50%, -50%) rotateZ(170deg)
+    &.main-link--3
+        &:before
+            transform: translate(-50%, -50%) rotateZ(10deg)
+    &.main-link--4
+        &:before
+            transform: translate(-50%, -50%) rotateZ(180deg)
+    &:hover
+        transform: scale(1.05)
+        // &:before
+        //     transform: translate(-50%, -50%) scale(1.1) rotateZ(20deg)
+    +respond-to(phone)
+        min-height: 100px
+        padding: 20px
+    > p
+        font-size: 20px
+        font-weight: 700
+        color: white
+        text-shadow: 0 2px 4px rgba(black, .5)
+        text-align: center
+        text-transform: uppercase
+        display: table-cell
+        vertical-align: middle
+        +respond-to(phone)
+            font-size: 16px
+
+// Module item
+.modules-section
+    background: $sub-bg-color
+.modules__subtitle
+    font-size: $sub-title-size
+    font-weight: 700
+    text-transform: uppercase
+    margin-top: 60px
+.module-item
+    background: white
+    min-height: 420px
+    margin-top: 40px
+    padding: 20px
+    border-radius: 5px
+    box-shadow: 0 2px 8px rgba(black, .1)
+    overflow: hidden
+    position: relative
+    &--highlights
+        margin: 5px 10px
+        min-height: 555px
+        +respond-to(phone)
+            min-height: unset
+.module-item__date
+    color: $sub-font-color
+    text-transform: uppercase
+    margin-top: 10px
+.module-item__image
+    width: calc(100% + 40px)
+    margin: -20px -20px 0
+    & + .module-item__title
+        margin-top: 10px
+.module-item__title
+    font-size: $sub-title-size
+    font-weight: 700
+.module-item__text
+    margin-top: 5px
+    & + a
+        margin-top: 15px
+.module-label
+    font-size: 30px
+    color: #27eacf
+    font-weight: 700
+    text-transform: uppercase
+    background: rgba(white, .5)
+    border-radius: 0 0 5px 0
+    padding: 10px 20px
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 1
+    box-shadow: 0 0 20px rgba(#27eacf, .2)
+    animation-name: live
+    animation-duration: 1s
+    animation-iteration-count: infinite
+    animation-timing-function: ease-in
+    &--soon
+        color: #ff5200
+
+@keyframes live
+    0%
+        transform: scale(1)
+    50%
+        transform: scale(1.1)
+    100%
+        transform: scale(1)
+
+
+// Popup
+.popup-container
+    background-color: rgba(0, 0, 0, 0.5)
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.5))
+    display: none
+    width: 100%
+    height: 100%
+    overflow: auto
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 10
+    &.showing
+        display: block
+.popup-holder
+    background-color: white
+    margin: -600px auto 0
+    margin-top: 10%
+    &--default
+        max-width: 60%
+        padding: 60px
+        margin-top: 50px
+        position: relative
+        +respond-to(phone)
+            max-width: 100%
+            margin: 40px 20px
+            padding: 25px 30px 30px
+            border-radius: 10px
+    &--promo
+        color: black
+        max-width: 800px
+        padding: 50px 100px 50px
+        position: relative
+        border-radius: 5px
+        +respond-to(phone)
+            max-width: 100%
+            padding: 40px 20px 20px
+            margin: 20px
+.popup-hide-btn
+    background: white
+    padding: 12px
+    display: inline-block
+    width: 50px
+    height: 50px
+    position: absolute
+    top: 5px
+    right: 5px
+    z-index: 1
+    cursor: pointer
+    +respond-to(phone)
+        width: 20px
+        height: 20px
+        padding: 0
+    &:hover
+        img
+            opacity: 1
+    img
+        max-width: 100%
+        vertical-align: top
+        opacity: 0.5
+
+.header-nav__lang
+    width: 50px
+    margin: 0 auto
+    position: relative
+.header-nav__lang_selector
+    width: 50px
+    height: 30px
+    position: absolute
+    top: 50%
+    left: 0
+    transform: translateY(-50%)
+    z-index: 0
+    opacity: 0
+.header-nav__flag
+    background-size: 17px 14px
+    background-position: 6px 6.5px
+    background-repeat: no-repeat
+    display: inline-block
+    width: 50px
+    height: 30px
+    padding: 4px
+    vertical-align: middle
+    position: relative
+    border: 1px solid $border-color
+    border-radius: 8px
+    &:after
+        content: ''
+        width: 0
+        height: 0
+        border-style: solid
+        border-width: 6px 5px 0 5px
+        border-color: $border-color transparent transparent transparent
+        position: absolute
+        top: 12px
+        right: 8px
+    &.flag-en
+        background-image: url('/images/ace/uk.svg')
+    &.flag-ru
+        background-image: url('/images/ace/ru.png')
+    &.flag-ja
+        background-image: url('/images/ace/jp.png')
+    &.flag-zh
+        background-image: url('/images/ace/zh.png')
+    &.flag-ko
+        background-image: url('/images/ace/ko.png')
+.white-text
+    color: white !important
+
+
+
+.platform-scheme
+    display: block
+    max-width: 70%
+    margin: 30px auto 0
+    +respond-to(phone)
+        max-width: 100%
+        margin: 20px auto 0
+.platform-description-holder
+    margin-top: 2px
+.platform-description-toggle
+    padding-top: 35px
+    position: relative
+    +respond-to(phone)
+        padding-top: 25px
+    &:after
+        content: ''
+        background: url('/images/team/platform/platform-description-bg.png') center center no-repeat
+        background-position: cover
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        z-index: 0
+    .wrap
+        z-index: 1
+.platform-holder
+    border-radius: 10px
+    padding: 0 20px 20px
+    margin: 0 -20px
+.platform-star-holder
+    padding-left: 100px
+    position: relative
+    +respond-to(phone)
+        text-align: center
+        padding-left: 0
+    > .section-title
+        padding-top: 30px
+        text-align: left
+        +respond-to(phone)
+            margin-top: 0
+.platform-star
+    max-width: 90px
+    position: absolute
+    top: 20px
+    left: 0
+    +respond-to(phone)
+        max-width: 50px
+        display: block
+        margin: 0 auto
+        position: relative
+.platform-tokens-block
+    text-align: right
+    +respond-to(phone)
+        text-align: center
+.platform-tabs-holder
+    font-weight: 700
+    color: black
+    background: white
+    list-style: none
+    padding: 10px 5px
+    border-radius: 5px
+    display: flex
+    justify-content: space-around
+    > li
+        display: inline-block
+    span
+        padding: 15px 30px
+        border-radius: 5px
+        cursor: pointer
+        &.selected
+            background: $highlight-color
+        &:lang(ru)
+            font-size: $small-font-size
+    +respond-to(tablet)
+        font-size: $small-font-size
+        span
+            padding: 15px 10px
+    +respond-to(phone)
+        text-align: center
+        display: block
+        > li
+            display: block
+        span
+            display: block
+            padding: 15px
+.platform-token
+    text-align: center
+    display: inline-block
+    background: #2962FF
+    width: 70px
+    height: 70px
+    padding-top: 15px
+    margin-right: 30px
+    margin-bottom: 20px
+    border-radius: 50%
+    position: relative
+    cursor: pointer
+    color: white
+    &:hover
+        background: $highlight-color
+    &:last-child
+        margin-right: 0
+        margin-left: 10px
+    &:after
+        content: attr(data-status)
+        color: black
+        font-weight: 700
+        text-transform: uppercase
+        position: absolute
+        left: 50%
+        bottom: -25px
+        transform: translateX(-50%)
+        white-space: nowrap
+    &.highlighted
+        &:after
+            color: $highlight-color
+.platform-token-border
+    display: inline-block
+    padding-left: 10px
+    position: relative
+    &:before
+        content: ''
+        border-left: 2px dashed rgba(black, .2)
+        width: 1px
+        height: 100%
+        position: absolute
+        top: 0
+        left: 0
+.platform-items-row
+    color: white
+    margin-top: 15px
+    padding-bottom: 20px
+    border-bottom: dashed 2px rgba($border-color,.1)
+    &:last-child
+        padding-bottom: 0
+        border-bottom: none
+.platform-items-row-label
+    text-transform: uppercase
+    opacity: 0.75
+.platform-item
+    color: white
+    font-weight: 700
+    display: inline-block
+    width: calc(33.333% - 13.5px)
+    background: #181D45
+    padding: 20px 20px 20px 80px
+    margin: 0 20px 0 0
+    float: left
+    position: relative
+    outline: none
+    &:hover, &:active, &:focus
+        color: white
+        text-decoration: none
+    &:before
+        content: ''
+        width: 60px
+        height: 60px
+        position: absolute
+        top: 50%
+        left: 10px
+        transform: translateY(-50%)
+    &:after
+        content: ''
+        background: #181D45
+        width: 20px
+        height: 6px
+        position: absolute
+        top: 50%
+        left: 100%
+        transform: translateY(-50%)
+    &:last-child
+        margin-right: 0
+        &:after
+            content: none
+    &.highlighted
+        color: $highlight-color
+    &.selected-token
+        color: white
+        background: $link-color
+    +respond-to(phone)
+        width: 100%
+        margin: 0 0 20px
+        &:after
+            width: 6px
+            height: 40px
+            top: 100%
+            left: 50%
+    &--crowd
+        &:before
+            background: url('/images/team/platform/crowd.png')
+        &.highlighted
+            &:not(.selected-token)
+                &:before
+                    background: url('/images/team/platform/crowd-highlighted.png')
+    &--time
+        &:before
+            background: url('/images/team/platform/time.png')
+        &.highlighted
+            &:not(.selected-token)
+                &:before
+                    background: url('/images/team/platform/time-highlighted.png')
+    &--income
+        &:before
+            background: url('/images/team/platform/income.png')
+        &.highlighted
+            &:not(.selected-token)
+                &:before
+                    background: url('/images/team/platform/income-highlighted.png')
+    &--video
+        &:before
+            background: url('/images/team/platform/video.png')
+        &.highlighted
+            &:not(.selected-token)
+                &:before
+                    background: url('/images/team/platform/video-highlighted.png')
+    &--percent
+        &:before
+            background: url('/images/team/platform/percent.png')
+        &.highlighted
+            &:not(.selected-token)
+                &:before
+                    background: url('/images/team/platform/percent-highlighted.png')
+    &--cup
+        &:before
+            background: url('/images/team/platform/cup.png')
+        &.highlighted
+            &:not(.selected-token)
+                &:before
+                    background: url('/images/team/platform/cup-highlighted.png')
+    &--check
+        &:before
+            background: url('/images/team/platform/check.png')
+        &.highlighted
+            &:not(.selected-token)
+                &:before
+                    background: url('/images/team/platform/check-highlighted.png')
+    &--search
+        &:before
+            background: url('/images/team/platform/search.png')
+        &.highlighted
+            &:not(.selected-token)
+                &:before
+                    background: url('/images/team/platform/search-highlighted.png')
+    &--promotion
+        &:before
+            background: url('/images/team/platform/promotion.png')
+        &.highlighted
+            &:not(.selected-token)
+                &:before
+                    background: url('/images/team/platform/promotion-highlighted.png')
+    &--merch
+        &:before
+            background: url('/images/team/platform/merch.png')
+        &.highlighted
+            &:not(.selected-token)
+                &:before
+                    background: url('/images/team/platform/merch-highlighted.png')
+    &--vote
+        &:before
+            background: url('/images/team/platform/vote.png')
+        &.highlighted
+            &:not(.selected-token)
+                &:before
+                    background: url('/images/team/platform/vote-highlighted.png')
+    &--bet
+        &:before
+            background: url('/images/team/platform/bet.png')
+        &.highlighted
+            &:not(.selected-token)
+                &:before
+                    background: url('/images/team/platform/bet-highlighted.png')

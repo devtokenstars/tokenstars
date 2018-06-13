@@ -65,4 +65,129 @@ Route::group(['middleware' => 'check_utm'], function() {
         Route::get('/rules', 'HomeController@rules')->name('rules');
         Route::get('/{slug_name}', 'HomeController@read')->name('read');//->where('id', '\d+');
     });
+
+    Route::namespace('Tokenstars')->group(function () {
+        Route::get('/', 'FreshController@show', function () {
+            app('translator')->setLocale('en');
+        });
+
+
+        Route::get('/hazard', function () {
+            return view('tokenstars.pages.hazard');
+        });
+        Route::get('/luiz', function () {
+            return view('tokenstars.pages.luiz');
+        });
+        Route::get('/fabregas', function () {
+            return view('tokenstars.pages.fabregas');
+        });
+        Route::get('/ovechkin', function () {
+            return view('tokenstars.pages.ovechkin');
+        });
+        Route::get('/rodriguez', function () {
+            return view('tokenstars.pages.rodriguez');
+        });
+        Route::get('/akon', function () {
+            return view('tokenstars.pages.akon');
+        });
+        Route::get('/butler', function () {
+            return view('tokenstars.pages.butler');
+        });
+        Route::get('/murray', function () {
+            return view('tokenstars.pages.murray');
+        });
+
+
+        Route::get('/starsipo', function () {
+            $filename = 'starsipo-1.pdf';
+
+            return response()->make(file_get_contents(base_path() . '/public/pdfs/' . $filename), 200, [
+                'Content-Type' => 'application/pdf',
+                'Content-Disposition' => 'inline; filename="'.$filename.'"'
+            ]);
+        });
+
+        Route::get('/starsIPO', function () {
+            $filename = 'starsipo-1.pdf';
+
+            return response()->make(file_get_contents(base_path() . '/public/pdfs/' . $filename), 200, [
+                'Content-Type' => 'application/pdf',
+                'Content-Disposition' => 'inline; filename="'.$filename.'"'
+            ]);
+        });
+
+        Route::get('/StarIPO', function () {
+            $filename = 'starsipo-2.pdf';
+
+            return response()->make(file_get_contents(base_path() . '/public/pdfs/' . $filename), 200, [
+                'Content-Type' => 'application/pdf',
+                'Content-Disposition' => 'inline; filename="'.$filename.'"'
+            ]);
+        });
+
+        Route::get('/ace/', [
+            'as' => 'ace',
+            'middleware' => 'localize',
+            'uses' => 'ExampleController@show'
+        ]);
+
+        Route::get('/ace/tech', function () {
+            return redirect('/ace');
+        });
+
+        Route::get('/team/', [
+            'as' => 'earn',
+            'middleware' => 'localize',
+            'uses' => 'TeamController@show'
+        ]);
+        Route::get('/fresh/', [
+            'as' => 'fresh',
+            'middleware' => 'localize',
+            'uses' => 'FreshController@show'
+        ]);
+        Route::get('/predictions/', [
+            'as' => 'team',
+            'middleware' => 'localize',
+            'uses' => 'PredictionsController@show'
+        ]);
+        Route::get('/earn/', [
+            'as' => 'team',
+            'middleware' => 'localize',
+            'uses' => 'StarsController@show'
+        ]);
+        Route::get('/watch/', [
+            'as' => 'watch',
+            'middleware' => 'localize',
+            'uses' => 'StarsWatchController@show'
+        ]);
+
+        Route::group(['prefix' => '{locale}', 'middleware' => 'localize'], function () {
+            Route::get('earn', [
+                'uses' => 'StarsController@show'
+            ]);
+            Route::get('watch', [
+                'uses' => 'StarsWatchController@show'
+            ]);
+            Route::get('fresh', [
+                'uses' => 'FreshController@show'
+            ]);
+            Route::get('predictions', [
+                'uses' => 'PredictionsController@show'
+            ]);
+            Route::get('', [
+                'uses' => 'ExampleController@root'
+            ]);
+            Route::get('ace', [
+                'uses' => 'ExampleController@show'
+            ]);
+            Route::get('team', [
+                'uses' => 'TeamController@show'
+            ]);
+            Route::get('ace/tech', function () {
+                return redirect()->route('ace');
+            });
+        });
+
+    });
+
 });

@@ -14,6 +14,7 @@ use App\Models\Quiz\QuizAnswer;
 use App\Telegram\Commands\Bet\RegisterCommand;
 use App\Services\TelegramService;
 use App\Telegram\Commands\Bet\WalletCommand;
+use App\Telegram\Commands\Bet\WithdrawCommand;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -199,6 +200,9 @@ EOT;
                             }
                         }
                     }
+                } else { // for other commands process as press on 'Skip' button i.e. cancel command
+                    $telegramUser->current_bot_command = null;
+                    $telegramUser->save();
                 }
                 return response('ok');
             }
@@ -253,13 +257,13 @@ EOT;
                     && $telegramUser->bet_questions()->whereNotNull('bet_answer_id')->count() == 5)
                 {
                     $bonus = new BetBonus();
-                    $bonus->amount = 2.018;
+                    $bonus->amount = 4.036;
                     $bonus->type = BetBonus::TYPE_REFERRAL;
                     $bonus->referral_id = $telegramUser->id;
                     $telegramUser->referrer->bet_bonuses()->save($bonus);
 
                     $bonus = new BetBonus();
-                    $bonus->amount = 2.018;
+                    $bonus->amount = 4.036;
                     $bonus->type = BetBonus::TYPE_REFERRAL;
                     $telegramUser->bet_bonuses()->save($bonus);
                     try {
@@ -499,7 +503,7 @@ EOT;
             }
             return response('ok');
         }
-        if ($message->text) {
+        if (!is_null($message->text)) {
             if ($message->has('entities')) {
                 if (collect($message->get('entities'))
                     ->filter(function ($entity) {
@@ -545,6 +549,9 @@ EOT;
                     } else {
                         $this->finishConfiguration($telegramUser);
                     }
+                    break;
+                case app()->make(WithdrawCommand::class)->getName():
+                    $command = Telegram::getCommands()[$telegramUser->current_bot_command];
                     break;
                 }
                 if ($command) {

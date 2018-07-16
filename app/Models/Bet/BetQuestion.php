@@ -43,6 +43,8 @@ class BetQuestion extends Model
         'telegram_file_id',
         'starts_at',
         'closes_at',
+        'bonus_amount',
+        'reply_columns',
     ];
 
     protected $dates = [
@@ -79,7 +81,8 @@ class BetQuestion extends Model
                 'telegram_message_id',
                 'ace_tokens',
                 'team_tokens',
-                'bet_bonuses'
+                'bet_bonuses',
+                'rating',
             ]);
     }
 

@@ -1,3 +1,7 @@
+## Tokenstars
+
+This is the [Tokenstars](https://tokenstars.com) web application with prediction module implemented via telegram bot [@TokenStars_Predictions_bot](https://telegram.me/TokenStars_Predictions_bot). The application is built on top of Laravel framework.
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
